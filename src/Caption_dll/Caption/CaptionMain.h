@@ -20,7 +20,7 @@ public:
         unsigned char ucFormat;
         unsigned char ucTCS;
         unsigned char ucRollupMode;
-        //=繧ｪ繝壹Ξ繝ｼ繧ｿ繝ｼ縺ｮ蜃ｦ逅�
+        //=オペレーターの処理
         _LANG_TAG_INFO & operator= (const _LANG_TAG_INFO & o) {
             ucLangTag = o.ucLangTag;
             ucDMF = o.ucDMF;

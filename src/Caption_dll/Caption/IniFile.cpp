@@ -31,7 +31,7 @@ BOOL IniFile::ReadIni(void)
         size_t len = strlen(strSJIS);
         strSJIS[len - 1] = 0;
         tmprl = strSJIS;
-    } while ((tmprl != "[å¤–å­—ä»£ç”¨å­—]") && (!feof(fpini)));
+    } while ((tmprl != "[ŠOš‘ã—pš]") && (!feof(fpini)));
 
     do {
         fgets(strSJIS, STRING_BUFFER_SIZE, fpini);
@@ -45,14 +45,14 @@ BOOL IniFile::ReadIni(void)
                 string tmpArg = tmprl.substr(iPos + 1);
                 ARIB8CharDecode.Add_dicHash_Char(tmpKey, tmpArg);
             }
-    } while ((tmprl != "[å¤–å­—å‡ºåŠ›]") && (!feof(fpini)));
+    } while ((tmprl != "[ŠOšo—Í]") && (!feof(fpini)));
     fclose(fpini);
     return TRUE;
 }
 
 BOOL IniFile::ReadIniARIB(void)
 {
-    // ARIBã®è¿½åŠ è¨˜å· ã€ŒARIB STD-B24ã€ç¬¬ä¸€ç·¨ ç¬¬ï¼’éƒ¨ã®è¡¨7-10
+    // ARIB‚Ì’Ç‰Á‹L† uARIB STD-B24v‘æˆê•Ò ‘æ‚Q•”‚Ì•\7-10
     CARIB8CharDecode ARIB8CharDecode;
     string tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIB;
     FILE *fpini = NULL;
@@ -65,7 +65,7 @@ BOOL IniFile::ReadIniARIB(void)
         size_t len = strlen(strSJIS);
         strSJIS[len - 1] = 0;
         tmprl = strSJIS;
-    } while ((tmprl != "[ARIBå¤–å­—ä»£ç”¨å­—]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOš‘ã—pš]") && (!feof(fpini)));
     int iGaijiCtr = 0;
     do {
         fgets(strSJIS, STRING_BUFFER_SIZE, fpini);
@@ -79,11 +79,11 @@ BOOL IniFile::ReadIniARIB(void)
                 GaijiTable[iGaijiCtr].strChar = tmprl.substr(iPos + 1);
                 iGaijiCtr += 1;
             }
-    } while ((tmprl != "[ARIBå¤–å­—å‡ºåŠ›]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOšo—Í]") && (!feof(fpini)));
     fclose(fpini);
     fpini = NULL;
 
-    // ARIBã®è¿½åŠ æ¼¢å­— ã€ŒARIB STD-B24ã€ç¬¬ä¸€ç·¨ ç¬¬ï¼’éƒ¨ã®è¡¨7-11
+    // ARIB‚Ì’Ç‰ÁŠ¿š uARIB STD-B24v‘æˆê•Ò ‘æ‚Q•”‚Ì•\7-11
     tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIB2;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rt") || !fpini)
         return FALSE;
@@ -92,7 +92,7 @@ BOOL IniFile::ReadIniARIB(void)
         size_t len = strlen(strSJIS);
         strSJIS[len - 1] = 0;
         tmprl = strSJIS;
-    } while ((tmprl != "[ARIBå¤–å­—2ä»£ç”¨å­—]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOš2‘ã—pš]") && (!feof(fpini)));
     int iGaijiCtr2 = 0;
     do {
         fgets(strSJIS, STRING_BUFFER_SIZE, fpini);
@@ -106,7 +106,7 @@ BOOL IniFile::ReadIniARIB(void)
                 GaijiTbl2[iGaijiCtr2].strChar = tmprl.substr(iPos + 1);
                 iGaijiCtr2 += 1;
             }
-    } while ((tmprl != "[ARIBå¤–å­—2å‡ºåŠ›]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOš2o—Í]") && (!feof(fpini)));
     fclose(fpini);
     return TRUE;
 }
@@ -118,7 +118,7 @@ BOOL IniFile::ReadIniUNICODE(void)
     if (fopen_s(&fpini, tmpFilename.c_str(), "rb") || !fpini)
         return FALSE;
 
-    // BOMåˆ¤å®š
+    // BOM”»’è
     unsigned char utf16bom[2];
     utf16bom[0] = (char)fgetc(fpini);
     utf16bom[1] = (char)fgetc(fpini);
@@ -139,7 +139,7 @@ BOOL IniFile::ReadIniUNICODE(void)
         str[len - 2] = 0;
         WideCharToMultiByte(CP_THREAD_ACP, 0, str, -1, strSJIS, STRING_BUFFER_SIZE, NULL, NULL);
         tmprl = strSJIS;
-    } while ((tmprl != "[å¤–å­—ä»£ç”¨å­—]") && (!feof(fpini)));
+    } while ((tmprl != "[ŠOš‘ã—pš]") && (!feof(fpini)));
 
     do {
         fgetws(str, STRING_BUFFER_SIZE, fpini);
@@ -156,21 +156,21 @@ BOOL IniFile::ReadIniUNICODE(void)
                 string tmpArg = tmpUTF8.substr(iPos + 1);
                 ARIB8CharDecode.Add_dicHash_Char(tmpKey,  tmpArg);
             }
-    } while ((tmprl != "[å¤–å­—å‡ºåŠ›]") && (!feof(fpini)));
+    } while ((tmprl != "[ŠOšo—Í]") && (!feof(fpini)));
     fclose(fpini);
     return TRUE;
 }
 
 BOOL IniFile::ReadIniARIBUNICODE(void)
 {
-    // ARIBã®è¿½åŠ è¨˜å· ã€ŒARIB STD-B24ã€ç¬¬ä¸€ç·¨ ç¬¬ï¼’éƒ¨ã®è¡¨7-10
+    // ARIB‚Ì’Ç‰Á‹L† uARIB STD-B24v‘æˆê•Ò ‘æ‚Q•”‚Ì•\7-10
     CARIB8CharDecode ARIB8CharDecode;
     string tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIBU;
     FILE *fpini = NULL;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rb") || !fpini)
         return FALSE;
 
-    // BOMåˆ¤å®š
+    // BOM”»’è
     unsigned char utf16bom[2];
     utf16bom[0] = (char)fgetc(fpini);
     utf16bom[1] = (char)fgetc(fpini);
@@ -191,7 +191,7 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
         str[len - 2] = 0;
         WideCharToMultiByte(CP_THREAD_ACP, 0, str, -1, strSJIS, STRING_BUFFER_SIZE, NULL, NULL);
         tmprl = strSJIS;
-    } while ((tmprl != "[ARIBå¤–å­—ä»£ç”¨å­—]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOš‘ã—pš]") && (!feof(fpini)));
     int iGaijiCtr = 0;
     do {
         fgetws(str, STRING_BUFFER_SIZE, fpini);
@@ -208,16 +208,16 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
                 GaijiTable[iGaijiCtr].strChar = tmpUTF8.substr(iPos + 1);
                 iGaijiCtr += 1;
             }
-    } while ((tmprl != "[ARIBå¤–å­—å‡ºåŠ›]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOšo—Í]") && (!feof(fpini)));
     fclose(fpini);
     fpini = NULL;
 
-    // ARIBã®è¿½åŠ æ¼¢å­— ã€ŒARIB STD-B24ã€ç¬¬ä¸€ç·¨ ç¬¬ï¼’éƒ¨ã®è¡¨7-11
+    // ARIB‚Ì’Ç‰ÁŠ¿š uARIB STD-B24v‘æˆê•Ò ‘æ‚Q•”‚Ì•\7-11
     tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIB2U;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rb") || !fpini)
         return FALSE;
 
-    // BOMåˆ¤å®š
+    // BOM”»’è
     utf16bom[0] = (char)fgetc(fpini);
     utf16bom[1] = (char)fgetc(fpini);
     if (utf16bom[0] == 0xFF && utf16bom[1] == 0xFE) {
@@ -233,7 +233,7 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
         str[len - 2] = 0;
         WideCharToMultiByte(CP_THREAD_ACP, 0, str, -1, strSJIS, STRING_BUFFER_SIZE, NULL, NULL);
         tmprl = strSJIS;
-    } while ((tmprl != "[ARIBå¤–å­—2ä»£ç”¨å­—]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOš2‘ã—pš]") && (!feof(fpini)));
     int iGaijiCtr2 = 0;
     do {
         fgetws(str, STRING_BUFFER_SIZE, fpini);
@@ -251,7 +251,7 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
                 GaijiTbl2[iGaijiCtr2].strChar = tmpUTF8.substr(iPos + 1);
                 iGaijiCtr2 += 1;
             }
-    } while ((tmprl != "[ARIBå¤–å­—2å‡ºåŠ›]") && (!feof(fpini)));
+    } while ((tmprl != "[ARIBŠOš2o—Í]") && (!feof(fpini)));
     fclose(fpini);
     return TRUE;
 }

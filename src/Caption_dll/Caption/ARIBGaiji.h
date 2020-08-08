@@ -12,8 +12,8 @@
 #define EXTERN extern
 #endif
 
-// ARIBã®è¿½åŠ è¨˜å· ï¼† è¿½åŠ æ¼¢å­—ã®ãƒ†ãƒ¼ãƒ–ãƒ«å®šç¾©
-// å®Ÿä½“ã¯ã€ã€ŒCaptionMain.cppã€ã§å®£è¨€
+// ARIB‚Ì’Ç‰Á‹L† • ’Ç‰ÁŠ¿š‚Ìƒe[ƒuƒ‹’è‹`
+// À‘Ì‚ÍAuCaptionMain.cppv‚ÅéŒ¾
 
 #define ARIB_MAX        495
 #define ARIB_MAX2       137

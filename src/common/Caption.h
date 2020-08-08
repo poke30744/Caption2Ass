@@ -12,38 +12,38 @@ extern "C" {
 
 #ifdef CAPTION_EXPORTS
 
-//DLLの初期化
-//戻り値：エラーコード
+//DLL�̏�����
+//�߂�l�F�G���[�R�[�h
 __declspec(dllexport)
 DWORD WINAPI InitializeCP(void);
 
-//DLLの初期化 UNICODE対応
-//戻り値：エラーコード
+//DLL�̏����� UNICODE�Ή�
+//�߂�l�F�G���[�R�[�h
 __declspec(dllexport)
 DWORD WINAPI InitializeUNICODE(void);
 
-//DLLの開放
-//戻り値：エラーコード
+//DLL�̊J��
+//�߂�l�F�G���[�R�[�h
 __declspec(dllexport)
 DWORD WINAPI UnInitializeCP(void);
 
-//188バイトTS1パケット
-//戻り値：エラーコード
+//188�o�C�gTS1�p�P�b�g
+//�߂�l�F�G���[�R�[�h
 __declspec(dllexport)
 DWORD WINAPI AddTSPacketCP(BYTE *pbPacket);
 
-//内部データクリア
-//戻り値：エラーコード
+//�����f�[�^�N���A
+//�߂�l�F�G���[�R�[�h
 __declspec(dllexport)
 DWORD WINAPI ClearCP(void);
 
-//字幕情報取得
-//戻り値：エラーコード
+//�������擾
+//�߂�l�F�G���[�R�[�h
 __declspec(dllexport)
 DWORD WINAPI GetTagInfoCP(LANG_TAG_INFO_DLL **ppList, DWORD *pdwListCount);
 
-//字幕データ本文取得
-//戻り値：エラーコード
+//�����f�[�^�{���擾
+//�߂�l�F�G���[�R�[�h
 __declspec(dllexport)
 DWORD WINAPI GetCaptionDataCP(unsigned char ucLangTag, CAPTION_DATA_DLL **ppList, DWORD *pdwListCount);
 

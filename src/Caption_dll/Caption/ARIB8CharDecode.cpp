@@ -143,49 +143,49 @@ static const CLUT_DAT DefClut[] = {
 };
 
 static const char AsciiTable[][3] = {
-    "ÔºÅ", "‚Äù", "ÔºÉ", "ÔºÑ", "ÔºÖ", "ÔºÜ", "‚Äô",
-    "Ôºà", "Ôºâ", "Ôºä", "Ôºã", "Ôºå", "Ôºç", "Ôºé", "Ôºè",
-    "Ôºê", "Ôºë", "Ôºí", "Ôºì", "Ôºî", "Ôºï", "Ôºñ", "Ôºó",
-    "Ôºò", "Ôºô", "Ôºö", "Ôºõ", "Ôºú", "Ôºù", "Ôºû", "Ôºü",
-    "Ôº†", "Ôº°", "Ôº¢", "Ôº£", "Ôº§", "Ôº•", "Ôº¶", "Ôºß",
-    "Ôº®", "Ôº©", "Ôº™", "Ôº´", "Ôº¨", "Ôº≠", "ÔºÆ", "ÔºØ",
-    "Ôº∞", "Ôº±", "Ôº≤", "Ôº≥", "Ôº¥", "Ôºµ", "Ôº∂", "Ôº∑",
-    "Ôº∏", "Ôºπ", "Ôº∫", "Ôºª", "Ôø•", "ÔºΩ", "Ôºæ", "Ôºø",
-    "‚Äò", "ÔΩÅ", "ÔΩÇ", "ÔΩÉ", "ÔΩÑ", "ÔΩÖ", "ÔΩÜ", "ÔΩá",
-    "ÔΩà", "ÔΩâ", "ÔΩä", "ÔΩã", "ÔΩå", "ÔΩç", "ÔΩé", "ÔΩè",
-    "ÔΩê", "ÔΩë", "ÔΩí", "ÔΩì", "ÔΩî", "ÔΩï", "ÔΩñ", "ÔΩó",
-    "ÔΩò", "ÔΩô", "ÔΩö", "ÔΩõ", "ÔΩú", "ÔΩù", "Ôø£"
+    "ÅI", "Åh", "Åî", "Åê", "Åì", "Åï", "Åf",
+    "Åi", "Åj", "Åñ", "Å{", "ÅC", "Å|", "ÅD", "Å^",
+    "ÇO", "ÇP", "ÇQ", "ÇR", "ÇS", "ÇT", "ÇU", "ÇV",
+    "ÇW", "ÇX", "ÅF", "ÅG", "ÅÉ", "ÅÅ", "ÅÑ", "ÅH",
+    "Åó", "Ç`", "Ça", "Çb", "Çc", "Çd", "Çe", "Çf",
+    "Çg", "Çh", "Çi", "Çj", "Çk", "Çl", "Çm", "Çn",
+    "Ço", "Çp", "Çq", "Çr", "Çs", "Çt", "Çu", "Çv",
+    "Çw", "Çx", "Çy", "Åm", "Åè", "Ån", "ÅO", "ÅQ",
+    "Åe", "ÇÅ", "ÇÇ", "ÇÉ", "ÇÑ", "ÇÖ", "ÇÜ", "Çá",
+    "Çà", "Çâ", "Çä", "Çã", "Çå", "Çç", "Çé", "Çè",
+    "Çê", "Çë", "Çí", "Çì", "Çî", "Çï", "Çñ", "Çó",
+    "Çò", "Çô", "Çö", "Åo", "Åb", "Åp", "ÅP"
 };
 static const char HiraTable[][3] = {
-    "„ÅÅ", "„ÅÇ", "„ÅÉ", "„ÅÑ", "„ÅÖ", "„ÅÜ", "„Åá",
-    "„Åà", "„Åâ", "„Åä", "„Åã", "„Åå", "„Åç", "„Åé", "„Åè",
-    "„Åê", "„Åë", "„Åí", "„Åì", "„Åî", "„Åï", "„Åñ", "„Åó",
-    "„Åò", "„Åô", "„Åö", "„Åõ", "„Åú", "„Åù", "„Åû", "„Åü",
-    "„Å†", "„Å°", "„Å¢", "„Å£", "„Å§", "„Å•", "„Å¶", "„Åß",
-    "„Å®", "„Å©", "„Å™", "„Å´", "„Å¨", "„Å≠", "„ÅÆ", "„ÅØ",
-    "„Å∞", "„Å±", "„Å≤", "„Å≥", "„Å¥", "„Åµ", "„Å∂", "„Å∑",
-    "„Å∏", "„Åπ", "„Å∫", "„Åª", "„Åº", "„ÅΩ", "„Åæ", "„Åø",
-    "„ÇÄ", "„ÇÅ", "„ÇÇ", "„ÇÉ", "„ÇÑ", "„ÇÖ", "„ÇÜ", "„Çá",
-    "„Çà", "„Çâ", "„Çä", "„Çã", "„Çå", "„Çç", "„Çé", "„Çè",
-    "„Çê", "„Çë", "„Çí", "„Çì", "„ÄÄ", "„ÄÄ", "„ÄÄ", "„Çù",
-    "„Çû", "„Éº", "„ÄÇ", "„Äå", "„Äç", "„ÄÅ", "„Éª"
+    "Çü", "Ç†", "Ç°", "Ç¢", "Ç£", "Ç§", "Ç•",
+    "Ç¶", "Çß", "Ç®", "Ç©", "Ç™", "Ç´", "Ç¨", "Ç≠",
+    "ÇÆ", "ÇØ", "Ç∞", "Ç±", "Ç≤", "Ç≥", "Ç¥", "Çµ",
+    "Ç∂", "Ç∑", "Ç∏", "Çπ", "Ç∫", "Çª", "Çº", "ÇΩ",
+    "Çæ", "Çø", "Ç¿", "Ç¡", "Ç¬", "Ç√", "Çƒ", "Ç≈",
+    "Ç∆", "Ç«", "Ç»", "Ç…", "Ç ", "ÇÀ", "ÇÃ", "ÇÕ",
+    "ÇŒ", "Çœ", "Ç–", "Ç—", "Ç“", "Ç”", "Ç‘", "Ç’",
+    "Ç÷", "Ç◊", "Çÿ", "ÇŸ", "Ç⁄", "Ç€", "Ç‹", "Ç›",
+    "Çﬁ", "Çﬂ", "Ç‡", "Ç·", "Ç‚", "Ç„", "Ç‰", "ÇÂ",
+    "ÇÊ", "ÇÁ", "ÇË", "ÇÈ", "ÇÍ", "ÇÎ", "ÇÏ", "ÇÌ",
+    "ÇÓ", "ÇÔ", "Ç", "ÇÒ", "Å@", "Å@", "Å@", "ÅT",
+    "ÅU", "Å[", "ÅB", "Åu", "Åv", "ÅA", "ÅE"
 };
 static const char KanaTable[][3] = {
-    "„Ç°", "„Ç¢", "„Ç£", "„Ç§", "„Ç•", "„Ç¶", "„Çß",
-    "„Ç®", "„Ç©", "„Ç™", "„Ç´", "„Ç¨", "„Ç≠", "„ÇÆ", "„ÇØ",
-    "„Ç∞", "„Ç±", "„Ç≤", "„Ç≥", "„Ç¥", "„Çµ", "„Ç∂", "„Ç∑",
-    "„Ç∏", "„Çπ", "„Ç∫", "„Çª", "„Çº", "„ÇΩ", "„Çæ", "„Çø",
-    "„ÉÄ", "„ÉÅ", "„ÉÇ", "„ÉÉ", "„ÉÑ", "„ÉÖ", "„ÉÜ", "„Éá",
-    "„Éà", "„Éâ", "„Éä", "„Éã", "„Éå", "„Éç", "„Éé", "„Éè",
-    "„Éê", "„Éë", "„Éí", "„Éì", "„Éî", "„Éï", "„Éñ", "„Éó",
-    "„Éò", "„Éô", "„Éö", "„Éõ", "„Éú", "„Éù", "„Éû", "„Éü",
-    "„É†", "„É°", "„É¢", "„É£", "„É§", "„É•", "„É¶", "„Éß",
-    "„É®", "„É©", "„É™", "„É´", "„É¨", "„É≠", "„ÉÆ", "„ÉØ",
-    "„É∞", "„É±", "„É≤", "„É≥", "„É¥", "„Éµ", "„É∂", "„ÉΩ",
-    "„Éæ", "„Éº", "„ÄÇ", "„Äå", "„Äç", "„ÄÅ", "„Éª"
+    "É@", "ÉA", "ÉB", "ÉC", "ÉD", "ÉE", "ÉF",
+    "ÉG", "ÉH", "ÉI", "ÉJ", "ÉK", "ÉL", "ÉM", "ÉN",
+    "ÉO", "ÉP", "ÉQ", "ÉR", "ÉS", "ÉT", "ÉU", "ÉV",
+    "ÉW", "ÉX", "ÉY", "ÉZ", "É[", "É\", "É]", "É^",
+    "É_", "É`", "Éa", "Éb", "Éc", "Éd", "Ée", "Éf",
+    "Ég", "Éh", "Éi", "Éj", "Ék", "Él", "Ém", "Én",
+    "Éo", "Ép", "Éq", "Ér", "És", "Ét", "Éu", "Év",
+    "Éw", "Éx", "Éy", "Éz", "É{", "É|", "É}", "É~",
+    "ÉÄ", "ÉÅ", "ÉÇ", "ÉÉ", "ÉÑ", "ÉÖ", "ÉÜ", "Éá",
+    "Éà", "Éâ", "Éä", "Éã", "Éå", "Éç", "Éé", "Éè",
+    "Éê", "Éë", "Éí", "Éì", "Éî", "Éï", "Éñ", "ÅR",
+    "ÅS", "Å[", "ÅB", "Åu", "Åv", "ÅA", "ÅE"
 };
 
-// ÂçäËßíÁî®„ÅÆ„ÉÜ„Éº„Éñ„É´
+// îºäpópÇÃÉeÅ[ÉuÉã
 static const char HalfAsciiTable[][3] = {
     "!", "\"", "#", "$", "%", "&", "'",
     "(", ")", "*", "+", ", ", "-", ".", "/",
@@ -198,10 +198,10 @@ static const char HalfAsciiTable[][3] = {
     "'", "a", "b", "c", "d", "e", "f", "g",
     "h", "i", "j", "k", "l", "m", "n", "o",
     "p", "q", "r", "s", "t", "u", "v", "w",
-    "x", "y", "z", "{", "|", "}", "Ôø£"
+    "x", "y", "z", "{", "|", "}", "ÅP"
 };
 static const char SpaceTable[][3] = {
-    "„ÄÄ",
+    "Å@",
     " "
 };
 
@@ -318,7 +318,7 @@ void CARIB8CharDecode::InitCaption(void)
 
     switch (m_wSWFMode) {
     case 7:
-        //960x540Ê®™
+        //960x540â°
         m_wClientW = 960;
         m_wClientH = 540;
         m_wCharW = 36;
@@ -327,7 +327,7 @@ void CARIB8CharDecode::InitCaption(void)
         m_wCharVInterval = 24;
         break;
     case 8:
-        //960x540Á∏¶
+        //960x540èc
         m_wClientW = 960;
         m_wClientH = 540;
         m_wCharW = 36;
@@ -336,7 +336,7 @@ void CARIB8CharDecode::InitCaption(void)
         m_wCharVInterval = 24;
         break;
     case 9:
-        //720x480Ê®™
+        //720x480â°
         m_wClientW = 720;
         m_wClientH = 480;
         m_wCharW = 36;
@@ -345,7 +345,7 @@ void CARIB8CharDecode::InitCaption(void)
         m_wCharVInterval = 16;
         break;
     case 10:
-        //720x480Á∏¶
+        //720x480èc
         m_wClientW = 720;
         m_wClientH = 480;
         m_wCharW = 36;
@@ -354,8 +354,8 @@ void CARIB8CharDecode::InitCaption(void)
         m_wCharVInterval = 24;
         break;
     case 14:
-        //C„Éó„É≠„Éï„Ç°„Ç§„É´
-        //Ë°®Á§∫È†òÂüü320x180„ÄÅË°®Á§∫Âå∫Áîª20x24„ÅßÂõ∫ÂÆö
+        //CÉvÉçÉtÉ@ÉCÉã
+        //ï\é¶óÃàÊ320x180ÅAï\é¶ãÊâÊ20x24Ç≈å≈íË
         m_wClientW = 320;
         m_wClientH = 180;
         m_wCharW = 18;
@@ -466,9 +466,9 @@ BOOL CARIB8CharDecode::Analyze(const BYTE *pbSrc, DWORD dwSrcSize, DWORD *pdwRea
 
     while (dwReadSize < dwSrcSize) {
         DWORD dwReadBuff = 0;
-        //1„Éê„Ç§„ÉàÁõÆ„ÉÅ„Çß„ÉÉ„ÇØ
+        //1ÉoÉCÉgñ⁄É`ÉFÉbÉN
         if (pbSrc[dwReadSize] <= 0x20) {
-            //C0Âà∂Âæ°„Ç≥„Éº„Éâ
+            //C0êßå‰ÉRÅ[Éh
             bRet = C0(pbSrc + dwReadSize, &dwReadBuff);
             dwReadSize += dwReadBuff;
             if (bRet == FALSE)
@@ -478,12 +478,12 @@ BOOL CARIB8CharDecode::Analyze(const BYTE *pbSrc, DWORD dwSrcSize, DWORD *pdwRea
                 break;
             }
         } else if (pbSrc[dwReadSize] > 0x20 && pbSrc[dwReadSize] < 0x7F) {
-            //GLÁ¨¶Âè∑È†òÂüü
+            //GLïÑçÜóÃàÊ
             if (GL(pbSrc + dwReadSize, &dwReadBuff) == FALSE)
                 return FALSE;
             dwReadSize += dwReadBuff;
         } else if (pbSrc[dwReadSize] >= 0x7F && pbSrc[dwReadSize] <= 0xA0) {
-            //C1Âà∂Âæ°„Ç≥„Éº„Éâ
+            //C1êßå‰ÉRÅ[Éh
             bRet = C1(pbSrc + dwReadSize, &dwReadBuff);
             dwReadSize += dwReadBuff;
             if (bRet == FALSE)
@@ -493,7 +493,7 @@ BOOL CARIB8CharDecode::Analyze(const BYTE *pbSrc, DWORD dwSrcSize, DWORD *pdwRea
                 break;
             }
         } else if (pbSrc[dwReadSize] > 0xA0 && pbSrc[dwReadSize] < 0xFF) {
-            //GRÁ¨¶Âè∑È†òÂüü
+            //GRïÑçÜóÃàÊ
             if (GR(pbSrc + dwReadSize, &dwReadBuff) == FALSE)
                 return FALSE;
             dwReadSize += dwReadBuff;
@@ -517,10 +517,10 @@ BOOL CARIB8CharDecode::C0(const BYTE *pbSrc, DWORD *pdwReadSize)
 
     switch (pbSrc[0]) {
     case 0x20:
-        //SP Á©∫ÁôΩ
-        //Á©∫ÁôΩ„ÅØÊñáÂ≠ó„Çµ„Ç§„Ç∫„ÅÆÂΩ±Èüø„ÅÇ„Çä
+        //SP ãÛîí
+        //ãÛîíÇÕï∂éöÉTÉCÉYÇÃâeãøÇ†ÇË
         if ((IsSmallCharMode() == FALSE) && (m_emStrSize != STR_MEDIUM))
-            // "„ÄÄ"
+            // "Å@"
             AddToString(SpaceTable[0], m_bGaiji);
         else
             // ' '
@@ -528,7 +528,7 @@ BOOL CARIB8CharDecode::C0(const BYTE *pbSrc, DWORD *pdwReadSize)
         dwReadSize = 1;
         break;
     case 0x0D:
-        //APR ÊîπË°å
+        //APR â¸çs
         if (!m_bUnicode)
             m_strDecode += "\r\n";
         else {
@@ -540,31 +540,31 @@ BOOL CARIB8CharDecode::C0(const BYTE *pbSrc, DWORD *pdwReadSize)
         dwReadSize = 1;
         break;
     case 0x0E:
-        //LS1 GL„Å´G1„Çª„ÉÉ„Éà
+        //LS1 GLÇ…G1ÉZÉbÉg
         m_GL = &m_G1;
         dwReadSize = 1;
         m_bModGL = TRUE;
         break;
     case 0x0F:
-        //LS0 GL„Å´G0„Çª„ÉÉ„Éà
+        //LS0 GLÇ…G0ÉZÉbÉg
         m_GL = &m_G0;
         dwReadSize = 1;
         m_bModGL = TRUE;
         break;
     case 0x19:
-        //SS2 „Ç∑„É≥„Ç∞„É´„Ç∑„Éï„Éà
+        //SS2 ÉVÉìÉOÉãÉVÉtÉg
         if (SS2(pbSrc + 1, &dwReadBuff) == FALSE)
             return FALSE;
         dwReadSize = 1 + dwReadBuff;
         break;
     case 0x1D:
-        //SS3 „Ç∑„É≥„Ç∞„É´„Ç∑„Éï„Éà
+        //SS3 ÉVÉìÉOÉãÉVÉtÉg
         if (SS3(pbSrc + 1, &dwReadBuff) == FALSE)
             return FALSE;
         dwReadSize = 1 + dwReadBuff;
         break;
     case 0x1B:
-        //ESC „Ç®„Çπ„Ç±„Éº„Éó„Ç∑„Éº„Ç±„É≥„Çπ
+        //ESC ÉGÉXÉPÅ[ÉvÉVÅ[ÉPÉìÉX
         if (ESC(pbSrc + 1, &dwReadBuff) == FALSE)
             return FALSE;
         dwReadSize = 1 + dwReadBuff;
@@ -653,8 +653,8 @@ BOOL CARIB8CharDecode::C0(const BYTE *pbSrc, DWORD *pdwReadSize)
         }
         break;
     default:
-        //Êú™„Çµ„Éù„Éº„Éà„ÅÆÂà∂Âæ°„Ç≥„Éº„Éâ
-        //APB„ÄÅAPD„ÄÅAPU
+        //ñ¢ÉTÉ|Å[ÉgÇÃêßå‰ÉRÅ[Éh
+        //APBÅAAPDÅAAPU
         dwReadSize = 1;
         break;
     }
@@ -679,62 +679,62 @@ BOOL CARIB8CharDecode::C1(const BYTE *pbSrc, DWORD *pdwReadSize)
 
     switch (pbSrc[0]) {
     case 0x89:
-        //MSZ ÂçäËßíÊåáÂÆö
+        //MSZ îºäpéwíË
         m_emStrSize = STR_MEDIUM;
         dwReadSize = 1;
         break;
     case 0x8A:
-        //NSZ ÂÖ®ËßíÊåáÂÆö
+        //NSZ ëSäpéwíË
         m_emStrSize = STR_NORMAL;
         dwReadSize = 1;
         break;
     case 0x80:
-        //BKF ÊñáÂ≠óÈªí
+        //BKF ï∂éöçï
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x00;
         dwReadSize = 1;
         break;
     case 0x81:
-        //RDF ÊñáÂ≠óËµ§
+        //RDF ï∂éöê‘
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x01;
         dwReadSize = 1;
         break;
     case 0x82:
-        //GRF ÊñáÂ≠óÁ∑ë
+        //GRF ï∂éöóŒ
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x02;
         dwReadSize = 1;
         break;
     case 0x83:
-        //YLF ÊñáÂ≠óÈªÑ
+        //YLF ï∂éöâ©
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x03;
         dwReadSize = 1;
         break;
     case 0x84:
-        //BLF ÊñáÂ≠óÈùí
+        //BLF ï∂éöê¬
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x04;
         dwReadSize = 1;
         break;
     case 0x85:
-        //MGF ÊñáÂ≠ó„Éû„Çº„É≥„Çø
+        //MGF ï∂éöÉ}É[ÉìÉ^
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x05;
         dwReadSize = 1;
         break;
     case 0x86:
-        //CNF ÊñáÂ≠ó„Ç∑„Ç¢„É≥
+        //CNF ï∂éöÉVÉAÉì
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x06;
         dwReadSize = 1;
         break;
     case 0x87:
-        //WHF ÊñáÂ≠óÁôΩ
+        //WHF ï∂éöîí
         m_bCharColorIndex = (m_bDefPalette << 4) | 0x07;
         dwReadSize = 1;
         break;
     case 0x88:
-        //SSZ Â∞èÂûã„Çµ„Ç§„Ç∫
+        //SSZ è¨å^ÉTÉCÉY
         m_emStrSize = STR_SMALL;
         dwReadSize = 1;
         break;
     case 0x8B:
-        //SZX ÊåáÂÆö„Çµ„Ç§„Ç∫
+        //SZX éwíËÉTÉCÉY
         if (pbSrc[1] == 0x60)
             m_emStrSize = STR_MICRO;
         else if (pbSrc[1] == 0x41)
@@ -750,7 +750,7 @@ BOOL CARIB8CharDecode::C1(const BYTE *pbSrc, DWORD *pdwReadSize)
         dwReadSize = 2;
         break;
     case 0x90:
-        //COL Ëâ≤ÊåáÂÆö
+        //COL êFéwíË
         if (pbSrc[1] == 0x20) {
             dwReadSize = 3;
             m_bDefPalette = pbSrc[2] & 0x0F;
@@ -763,10 +763,10 @@ BOOL CARIB8CharDecode::C1(const BYTE *pbSrc, DWORD *pdwReadSize)
                 m_bBackColorIndex = pbSrc[1] & 0x0F;
                 break;
             case 0x60:
-                //Êú™„Çµ„Éù„Éº„Éà
+                //ñ¢ÉTÉ|Å[Ég
                 break;
             case 0x70:
-                //Êú™„Çµ„Éù„Éº„Éà
+                //ñ¢ÉTÉ|Å[Ég
                 break;
             default:
                 break;
@@ -775,7 +775,7 @@ BOOL CARIB8CharDecode::C1(const BYTE *pbSrc, DWORD *pdwReadSize)
         }
         break;
     case 0x91:
-        //FLC „Éï„É©„ÉÉ„Ç∑„É≥„Ç∞Âà∂Âæ°
+        //FLC ÉtÉâÉbÉVÉìÉOêßå‰
         if (pbSrc[1] == 0x40)
             m_bFlushMode = 1;
         else if (pbSrc[1] == 0x47)
@@ -785,18 +785,18 @@ BOOL CARIB8CharDecode::C1(const BYTE *pbSrc, DWORD *pdwReadSize)
         dwReadSize = 2;
         break;
     case 0x93:
-        //POL „Éë„Çø„Éº„É≥Ê•µÊÄß
-        //Êú™„Çµ„Éù„Éº„Éà
+        //POL ÉpÉ^Å[Éìã…ê´
+        //ñ¢ÉTÉ|Å[Ég
         dwReadSize = 2;
         break;
     case 0x94:
-        //WMM Êõ∏„ÅçËæº„Åø„É¢„Éº„ÉâÂ§âÊõ¥
-        //Êú™„Çµ„Éù„Éº„Éà
+        //WMM èëÇ´çûÇ›ÉÇÅ[ÉhïœçX
+        //ñ¢ÉTÉ|Å[Ég
         dwReadSize = 2;
         break;
     case 0x95:
-        //MACRO „Éû„ÇØ„É≠ÂÆöÁæ©
-        //Êú™„Çµ„Éù„Éº„Éà
+        //MACRO É}ÉNÉçíËã`
+        //ñ¢ÉTÉ|Å[Ég
         {
             DWORD dwCount = 0;
             do {
@@ -806,29 +806,29 @@ BOOL CARIB8CharDecode::C1(const BYTE *pbSrc, DWORD *pdwReadSize)
         }
         break;
     case 0x97:
-        //HLC Âõ≤„ÅøÂà∂Âæ°
+        //HLC àÕÇ›êßå‰
         m_bHLC = pbSrc[1] & 0x0F;
         dwReadSize = 2;
         break;
     case 0x98:
-        //RPC ÊñáÂ≠óÁπ∞„ÇäËøî„Åó
+        //RPC ï∂éöåJÇËï‘Çµ
         m_bRPC = TRUE;
         m_wRPC = pbSrc[1] - 0x40;
         dwReadSize = 2;
         break;
     case 0x99:
-        //SPL „Ç¢„É≥„ÉÄ„Éº„É©„Ç§„É≥ „É¢„Ç∂„Ç§„ÇØ„ÅÆÁµÇ‰∫Ü
+        //SPL ÉAÉìÉ_Å[ÉâÉCÉì ÉÇÉUÉCÉNÇÃèIóπ
         m_bBold = FALSE;
         bRet = 2;
         dwReadSize = 1;
         break;
     case 0x9A:
-        //STL „Ç¢„É≥„ÉÄ„Éº„É©„Ç§„É≥ „É¢„Ç∂„Ç§„ÇØ„ÅÆÈñãÂßã
+        //STL ÉAÉìÉ_Å[ÉâÉCÉì ÉÇÉUÉCÉNÇÃäJén
         m_bBold = TRUE;
         dwReadSize = 1;
         break;
     case 0x9D:
-        //TIME ÊôÇÈñìÂà∂Âæ°
+        //TIME éûä‘êßå‰
         CheckModify();
         if (pbSrc[1] == 0x20) {
             m_dwWaitTime += pbSrc[2] - 0x40;
@@ -842,13 +842,13 @@ BOOL CARIB8CharDecode::C1(const BYTE *pbSrc, DWORD *pdwReadSize)
         }
         break;
     case 0x9B:
-        //CSI „Ç≥„É≥„Éà„É≠„Éº„É´„Ç∑„Éº„Ç±„É≥„Çπ
+        //CSI ÉRÉìÉgÉçÅ[ÉãÉVÅ[ÉPÉìÉX
         if (CSI(pbSrc, &dwReadBuff) == FALSE)
             return FALSE;
         dwReadSize = dwReadBuff;
         break;
     default:
-        //Êú™„Çµ„Éù„Éº„Éà„ÅÆÂà∂Âæ°„Ç≥„Éº„Éâ
+        //ñ¢ÉTÉ|Å[ÉgÇÃêßå‰ÉRÅ[Éh
         dwReadSize = 1;
         break;
     }
@@ -866,18 +866,18 @@ BOOL CARIB8CharDecode::GL(const BYTE *pbSrc, DWORD *pdwReadSize)
 
     DWORD dwReadSize = 0;
     if (m_GL->iMode == MF_MODE_G) {
-        //ÊñáÂ≠ó„Ç≥„Éº„Éâ
+        //ï∂éöÉRÅ[Éh
         switch (m_GL->iMF) {
         case MF_JISX_KANA:
-            //JISX X0201„ÅÆ0x7F„Åæ„Åß„ÅØASCII„Å®Âêå„Åò
+            //JISX X0201ÇÃ0x7FÇ‹Ç≈ÇÕASCIIÇ∆ìØÇ∂
         case MF_ASCII:
         case MF_PROP_ASCII:
             {
                 if ((IsSmallCharMode() == FALSE) && (m_emStrSize != STR_MEDIUM))
-                    //ÂÖ®Ëßí„Å™„ÅÆ„Åß„ÉÜ„Éº„Éñ„É´„Åã„ÇâSJIS„Ç≥„Éº„ÉâÂèñÂæó
+                    //ëSäpÇ»ÇÃÇ≈ÉeÅ[ÉuÉãÇ©ÇÁSJISÉRÅ[ÉhéÊìæ
                     AddToString(AsciiTable[pbSrc[0] - 0x21], m_bGaiji);
                 else
-                    //ÂçäËßí„Å™„ÅÆ„Åß„Åù„ÅÆ„Åæ„ÅæÂÖ•„Çå„Çã
+                    //îºäpÇ»ÇÃÇ≈ÇªÇÃÇ‹Ç‹ì¸ÇÍÇÈ
                     AddToString(HalfAsciiTable[pbSrc[0] - 0x21], m_bGaiji);
                 dwReadSize = 1;
             }
@@ -885,8 +885,8 @@ BOOL CARIB8CharDecode::GL(const BYTE *pbSrc, DWORD *pdwReadSize)
         case MF_HIRA:
         case MF_PROP_HIRA:
             {
-                //„Å≤„Çâ„Åå„Å™
-                //„ÉÜ„Éº„Éñ„É´„Åã„ÇâSJIS„Ç≥„Éº„ÉâÂèñÂæó
+                //Ç–ÇÁÇ™Ç»
+                //ÉeÅ[ÉuÉãÇ©ÇÁSJISÉRÅ[ÉhéÊìæ
                 AddToString(HiraTable[pbSrc[0] - 0x21], m_bGaiji);
                 dwReadSize = 1;
             }
@@ -894,8 +894,8 @@ BOOL CARIB8CharDecode::GL(const BYTE *pbSrc, DWORD *pdwReadSize)
         case MF_KANA:
         case MF_PROP_KANA:
             {
-                //„Ç´„Çø„Ç´„Éä
-                //„ÉÜ„Éº„Éñ„É´„Åã„ÇâSJIS„Ç≥„Éº„ÉâÂèñÂæó
+                //ÉJÉ^ÉJÉi
+                //ÉeÅ[ÉuÉãÇ©ÇÁSJISÉRÅ[ÉhéÊìæ
                 AddToString(KanaTable[pbSrc[0] - 0x21], m_bGaiji);
                 dwReadSize = 1;
             }
@@ -903,8 +903,8 @@ BOOL CARIB8CharDecode::GL(const BYTE *pbSrc, DWORD *pdwReadSize)
         case MF_MACRO:
             {
                 DWORD dwTemp = 0;
-                //„Éû„ÇØ„É≠
-                //PSI/SI„Åß„ÅØÊú™„Çµ„Éù„Éº„Éà
+                //É}ÉNÉç
+                //PSI/SIÇ≈ÇÕñ¢ÉTÉ|Å[Ég
                 switch (pbSrc[0]) {
                 case 0x60:
                     Analyze(DefaultMacro0, sizeof(DefaultMacro0), &dwTemp);
@@ -964,7 +964,7 @@ BOOL CARIB8CharDecode::GL(const BYTE *pbSrc, DWORD *pdwReadSize)
         case MF_JIS_KANJI1:
         case MF_JIS_KANJI2:
         case MF_KIGOU:
-            //Êº¢Â≠ó
+            //äøéö
             {
                 if (ToSJIS(pbSrc[0], pbSrc[1]) == FALSE)
                     ToCustomFont(pbSrc[0], pbSrc[1]);
@@ -978,8 +978,8 @@ BOOL CARIB8CharDecode::GL(const BYTE *pbSrc, DWORD *pdwReadSize)
     } else {
         if (m_GL->iMF == MF_MACRO) {
             DWORD dwTemp = 0;
-            //„Éû„ÇØ„É≠
-            //PSI/SI„Åß„ÅØÊú™„Çµ„Éù„Éº„Éà
+            //É}ÉNÉç
+            //PSI/SIÇ≈ÇÕñ¢ÉTÉ|Å[Ég
             switch (pbSrc[0]) {
             case 0x60:
                 Analyze(DefaultMacro0, sizeof(DefaultMacro0), &dwTemp);
@@ -1038,7 +1038,7 @@ BOOL CARIB8CharDecode::GL(const BYTE *pbSrc, DWORD *pdwReadSize)
 
             string tmpDRCSChar = Get_dicCharcode_Char(DRCSCharCode);
             string tmpStr = tmpDRCSChar.substr(0, 4);
-            if (tmpStr != "[Â§ñ:")
+            if (tmpStr != "[äO:")
                 m_bGaiji = TRUE;
             AddToString(tmpDRCSChar.c_str(), m_bGaiji);
             dwReadSize = m_GL->iByte;
@@ -1060,16 +1060,16 @@ BOOL CARIB8CharDecode::GR(const BYTE *pbSrc, DWORD *pdwReadSize)
 
     DWORD dwReadSize = 0;
     if (m_GR->iMode == MF_MODE_G) {
-        //ÊñáÂ≠ó„Ç≥„Éº„Éâ
+        //ï∂éöÉRÅ[Éh
         switch (m_GR->iMF) {
         case MF_ASCII:
         case MF_PROP_ASCII:
             {
                 if ((IsSmallCharMode() == FALSE) && (m_emStrSize != STR_MEDIUM))
-                    //ÂÖ®Ëßí„Å™„ÅÆ„Åß„ÉÜ„Éº„Éñ„É´„Åã„ÇâSJIS„Ç≥„Éº„ÉâÂèñÂæó
+                    //ëSäpÇ»ÇÃÇ≈ÉeÅ[ÉuÉãÇ©ÇÁSJISÉRÅ[ÉhéÊìæ
                     AddToString(AsciiTable[(pbSrc[0] & 0x7F) - 0x21], m_bGaiji);
                 else
-                    //ÂçäËßí„Å™„ÅÆ„Åß„Åù„ÅÆ„Åæ„ÅæÂÖ•„Çå„Çã
+                    //îºäpÇ»ÇÃÇ≈ÇªÇÃÇ‹Ç‹ì¸ÇÍÇÈ
                     AddToString(HalfAsciiTable[(pbSrc[0] & 0x7F) - 0x21], m_bGaiji);
                 dwReadSize = 1;
             }
@@ -1077,19 +1077,19 @@ BOOL CARIB8CharDecode::GR(const BYTE *pbSrc, DWORD *pdwReadSize)
         case MF_HIRA:
         case MF_PROP_HIRA:
             {
-                //„Å≤„Çâ„Åå„Å™
-                //„ÉÜ„Éº„Éñ„É´„Åã„ÇâSJIS„Ç≥„Éº„ÉâÂèñÂæó
+                //Ç–ÇÁÇ™Ç»
+                //ÉeÅ[ÉuÉãÇ©ÇÁSJISÉRÅ[ÉhéÊìæ
                 AddToString(HiraTable[(pbSrc[0] & 0x7F) - 0x21], m_bGaiji);
                 dwReadSize = 1;
             }
             break;
         case MF_JISX_KANA:
-            //JIX X0201„ÅÆ0x80‰ª•Èôç„ÅØÂçäËßí„Ç´„Éä
+            //JIX X0201ÇÃ0x80à»ç~ÇÕîºäpÉJÉi
         case MF_KANA:
         case MF_PROP_KANA:
             {
-                //„Ç´„Çø„Ç´„Éä
-                //„ÉÜ„Éº„Éñ„É´„Åã„ÇâSJIS„Ç≥„Éº„ÉâÂèñÂæó
+                //ÉJÉ^ÉJÉi
+                //ÉeÅ[ÉuÉãÇ©ÇÁSJISÉRÅ[ÉhéÊìæ
                 AddToString(KanaTable[(pbSrc[0] & 0x7F) - 0x21], m_bGaiji);
                 dwReadSize = 1;
             }
@@ -1097,8 +1097,8 @@ BOOL CARIB8CharDecode::GR(const BYTE *pbSrc, DWORD *pdwReadSize)
         case MF_MACRO:
             {
                 DWORD dwTemp = 0;
-                //„Éû„ÇØ„É≠
-                //PSI/SI„Åß„ÅØÊú™„Çµ„Éù„Éº„Éà
+                //É}ÉNÉç
+                //PSI/SIÇ≈ÇÕñ¢ÉTÉ|Å[Ég
                 switch (pbSrc[0]) {
                 case 0x60:
                     Analyze(DefaultMacro0, sizeof(DefaultMacro0), &dwTemp);
@@ -1159,7 +1159,7 @@ BOOL CARIB8CharDecode::GR(const BYTE *pbSrc, DWORD *pdwReadSize)
         case MF_JIS_KANJI2:
         case MF_KIGOU:
             {
-                //Êº¢Â≠ó
+                //äøéö
                 if (ToSJIS((pbSrc[0] & 0x7F), (pbSrc[1] & 0x7F)) == FALSE)
                     ToCustomFont((pbSrc[0] & 0x7F), (pbSrc[1] & 0x7F));
                 dwReadSize = 2;
@@ -1172,8 +1172,8 @@ BOOL CARIB8CharDecode::GR(const BYTE *pbSrc, DWORD *pdwReadSize)
     } else {
         if (m_GR->iMF == MF_MACRO) {
             DWORD dwTemp = 0;
-            //„Éû„ÇØ„É≠
-            //PSI/SI„Åß„ÅØÊú™„Çµ„Éù„Éº„Éà
+            //É}ÉNÉç
+            //PSI/SIÇ≈ÇÕñ¢ÉTÉ|Å[Ég
             switch (pbSrc[0]) {
             case 0x60:
                 Analyze(DefaultMacro0, sizeof(DefaultMacro0), &dwTemp);
@@ -1232,7 +1232,7 @@ BOOL CARIB8CharDecode::GR(const BYTE *pbSrc, DWORD *pdwReadSize)
 
             string tmpDRCSChar = Get_dicCharcode_Char(DRCSCharCode);
             string tmpStr = tmpDRCSChar.substr(0, 4);
-            if (tmpStr != "[Â§ñ:")
+            if (tmpStr != "[äO:")
                 m_bGaiji = TRUE;
             AddToString(tmpDRCSChar.c_str(), m_bGaiji);
             dwReadSize = m_GR->iByte;
@@ -1282,12 +1282,12 @@ BOOL CARIB8CharDecode::ToCustomFont(const BYTE bFirst, const BYTE bSecond)
     unsigned short usSrc = (unsigned short)(bFirst << 8) | bSecond;
     m_bGaiji = TRUE;
     string tmpGaiji = "";
-    //  ARIB ËøΩÂä†Êº¢Â≠ó
+    //  ARIB í«â¡äøéö
     if (0x7521 <= usSrc && usSrc <= 0x757E)
         tmpGaiji = GaijiTbl2[usSrc - 0x7521].strChar;
     else if (0x7621 <= usSrc && usSrc <= 0x764B)
         tmpGaiji = GaijiTbl2[usSrc - 0x7621 + 94].strChar;
-    //  ARIB ËøΩÂä†Ë®òÂè∑
+    //  ARIB í«â¡ãLçÜ
     else if (0x7A21 <= usSrc && usSrc <= 0x7A7E)
         tmpGaiji = GaijiTable[usSrc - 0x7A20].strChar;
     else if (0x7B21 <= usSrc && usSrc <= 0x7B7E)
@@ -1304,7 +1304,7 @@ BOOL CARIB8CharDecode::ToCustomFont(const BYTE bFirst, const BYTE bSecond)
             tmpGaiji = GaijiTable[0].strChar;
         else {
             m_bGaiji = FALSE;
-            AddToString("„Éª", m_bGaiji);
+            AddToString("ÅE", m_bGaiji);
             return FALSE;
         }
     }
@@ -1323,7 +1323,7 @@ BOOL CARIB8CharDecode::AddToString(const char *cDec, BOOL m_bGaiji)
     CHAR strUTF8[256] = { 0 };
     string tmpcDec;
     if (m_emStrSize == STR_MEDIUM)
-        // ÂÖ®Ëßí -> ÂçäËßí
+        // ëSäp -> îºäp
         tmpcDec = GetHalfChar(cDec);
     else
         tmpcDec = cDec;
@@ -1390,7 +1390,7 @@ BOOL CARIB8CharDecode::ESC(const BYTE *pbSrc, DWORD *pdwReadSize)
     if (pbSrc[0] == 0x24) {
         if (pbSrc[1] >= 0x28 && pbSrc[1] <= 0x2B) {
             if (pbSrc[2] == 0x20) {
-                //2„Éê„Ç§„ÉàDRCS
+                //2ÉoÉCÉgDRCS
                 switch (pbSrc[1]) {
                 case 0x28:
                     m_G0.iMF = pbSrc[3];
@@ -1417,7 +1417,7 @@ BOOL CARIB8CharDecode::ESC(const BYTE *pbSrc, DWORD *pdwReadSize)
                 }
                 dwReadSize = 4;
             } else if (pbSrc[2] == 0x28) {
-                //Ë§áÊï∞„Éê„Ç§„Éà„ÄÅÈü≥Ê•ΩÁ¨¶Âè∑
+                //ï°êîÉoÉCÉgÅAâπäyïÑçÜ
                 switch (pbSrc[1]) {
                 case 0x28:
                     m_G0.iMF = pbSrc[3];
@@ -1444,7 +1444,7 @@ BOOL CARIB8CharDecode::ESC(const BYTE *pbSrc, DWORD *pdwReadSize)
                 }
                 dwReadSize = 4;
             } else {
-                //2„Éê„Ç§„ÉàG„Çª„ÉÉ„Éà
+                //2ÉoÉCÉgGÉZÉbÉg
                 switch (pbSrc[1]) {
                 case 0x29:
                     m_G1.iMF = pbSrc[2];
@@ -1467,7 +1467,7 @@ BOOL CARIB8CharDecode::ESC(const BYTE *pbSrc, DWORD *pdwReadSize)
                 dwReadSize = 3;
             }
         } else {
-            //2„Éê„Ç§„ÉàG„Çª„ÉÉ„Éà
+            //2ÉoÉCÉgGÉZÉbÉg
             m_G0.iMF = pbSrc[1];
             m_G0.iMode = MF_MODE_G;
             m_G0.iByte = 2;
@@ -1475,7 +1475,7 @@ BOOL CARIB8CharDecode::ESC(const BYTE *pbSrc, DWORD *pdwReadSize)
         }
     } else if (pbSrc[0] >= 0x28 && pbSrc[0] <= 0x2B) {
         if (pbSrc[1] == 0x20) {
-            //1„Éê„Ç§„ÉàDRCS
+            //1ÉoÉCÉgDRCS
             switch (pbSrc[0]) {
             case 0x28:
                 m_G0.iMF = pbSrc[2];
@@ -1502,7 +1502,7 @@ BOOL CARIB8CharDecode::ESC(const BYTE *pbSrc, DWORD *pdwReadSize)
             }
             dwReadSize = 3;
         } else {
-            //1„Éê„Ç§„ÉàG„Çª„ÉÉ„Éà
+            //1ÉoÉCÉgGÉZÉbÉg
             switch (pbSrc[0]) {
             case 0x28:
                 m_G0.iMF = pbSrc[1];
@@ -1530,29 +1530,29 @@ BOOL CARIB8CharDecode::ESC(const BYTE *pbSrc, DWORD *pdwReadSize)
             dwReadSize = 2;
         }
     } else if (pbSrc[0] == 0x6E) {
-        //GL„Å´G2„Çª„ÉÉ„Éà
+        //GLÇ…G2ÉZÉbÉg
         m_GL = &m_G2;
         dwReadSize = 1;
         m_bModGL = TRUE;
     } else if (pbSrc[0] == 0x6F) {
-        //GL„Å´G3„Çª„ÉÉ„Éà
+        //GLÇ…G3ÉZÉbÉg
         m_GL = &m_G3;
         dwReadSize = 1;
         m_bModGL = TRUE;
     } else if (pbSrc[0] == 0x7C) {
-        //GR„Å´G3„Çª„ÉÉ„Éà
+        //GRÇ…G3ÉZÉbÉg
         m_GR = &m_G3;
         dwReadSize = 1;
     } else if (pbSrc[0] == 0x7D) {
-        //GR„Å´G2„Çª„ÉÉ„Éà
+        //GRÇ…G2ÉZÉbÉg
         m_GR = &m_G2;
         dwReadSize = 1;
     } else if (pbSrc[0] == 0x7E) {
-        //GR„Å´G1„Çª„ÉÉ„Éà
+        //GRÇ…G1ÉZÉbÉg
         m_GR = &m_G1;
         dwReadSize = 1;
     } else {
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         dwReadSize = 1;
         *pdwReadSize = dwReadSize;
         return FALSE;
@@ -1568,19 +1568,19 @@ BOOL CARIB8CharDecode::SS2(const BYTE *pbSrc, DWORD *pdwReadSize)
     m_bModGL = FALSE;
     MF_MODE *LastG;
     LastG = m_GL;
-    //‰∏ÄÊôÇÁöÑ„Å´ÂÖ•„ÇåÊõø„Åà„Çã
+    //àÍéûìIÇ…ì¸ÇÍë÷Ç¶ÇÈ
     m_GL = &m_G2;
-    //GLÁ¨¶Âè∑È†òÂüü
+    //GLïÑçÜóÃàÊ
     BOOL bRet = GL(pbSrc, pdwReadSize);
     if (m_bModGL != FALSE)
         return bRet;
 
     if (bRet != FALSE) {
-        //ÂÖÉ„Å´Êàª„Åô
+        //å≥Ç…ñﬂÇ∑
         m_GL = LastG;
         return bRet;
     }
-    //ÂÖÉ„Å´Êàª„Åô
+    //å≥Ç…ñﬂÇ∑
     m_GL = LastG;
     return TRUE;
 }
@@ -1590,19 +1590,19 @@ BOOL CARIB8CharDecode::SS3(const BYTE *pbSrc, DWORD *pdwReadSize)
     m_bModGL = FALSE;
     MF_MODE *LastG;
     LastG = m_GL;
-    //‰∏ÄÊôÇÁöÑ„Å´ÂÖ•„ÇåÊõø„Åà„Çã
+    //àÍéûìIÇ…ì¸ÇÍë÷Ç¶ÇÈ
     m_GL = &m_G3;
-    //GLÁ¨¶Âè∑È†òÂüü
+    //GLïÑçÜóÃàÊ
     BOOL bRet = GL(pbSrc, pdwReadSize);
     if (m_bModGL != FALSE)
         return bRet;
 
     if (bRet != FALSE) {
-        //ÂÖÉ„Å´Êàª„Åô
+        //å≥Ç…ñﬂÇ∑
         m_GL = LastG;
         return bRet;
     }
-    //ÂÖÉ„Å´Êàª„Åô
+    //å≥Ç…ñﬂÇ∑
     m_GL = LastG;
     return TRUE;
 }
@@ -1630,7 +1630,7 @@ BOOL CARIB8CharDecode::CSI(const BYTE *pbSrc, DWORD *pdwReadSize)
                     if (bCharMode == FALSE)
                         m_wSWFMode = wParam;
                     else {
-                        //Êú™„Çµ„Éù„Éº„Éà
+                        //ñ¢ÉTÉ|Å[Ég
                     }
                 } else if (pbSrc[i] == 0x3B)
                     bCharMode = TRUE;
@@ -1766,23 +1766,23 @@ BOOL CARIB8CharDecode::CSI(const BYTE *pbSrc, DWORD *pdwReadSize)
         break;
     case 0x42:
         //GSM
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x5D:
         //GAA
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x5E:
         //SRC
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x62:
         //TCC
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x65:
         //CFS
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x63:
         //ORN
@@ -1828,23 +1828,23 @@ BOOL CARIB8CharDecode::CSI(const BYTE *pbSrc, DWORD *pdwReadSize)
         break;
     case 0x66:
         //XCS
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x68:
         //PRA
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x54:
         //CCC
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x67:
         //SCR
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         break;
     case 0x69:
         //ACS
-        //Êú™„Çµ„Éù„Éº„Éà
+        //ñ¢ÉTÉ|Å[Ég
         if (dwReadSize != 3 || pbSrc[dwReadSize - 2] <= 0x31)
             break;
         while (pbSrc[++dwReadSize] != 0x9B)
@@ -1984,7 +1984,7 @@ BOOL CARIB8CharDecode::DRCSHeaderparse(const BYTE *pbSrc, DWORD dwSrcSize, BOOL 
             BYTE bWidth = pbSrc[dwRead + 2];
             BYTE bHeight = pbSrc[dwRead + 3];
             if (!(bMode == 0 && bDepth == 0 || bMode == 1 && bDepth == 2) || bWidth > DRCS_SIZE_MAX || bHeight > DRCS_SIZE_MAX)
-                //Êú™„Çµ„Éù„Éº„Éà(ÈÅãÁî®Ë¶èÂÆöÂ§ñ)
+                //ñ¢ÉTÉ|Å[Ég(â^ópãKíËäO)
                 return FALSE;
 
             dwRead += 4;
@@ -2001,23 +2001,23 @@ BOOL CARIB8CharDecode::DRCSHeaderparse(const BYTE *pbSrc, DWORD dwSrcSize, BOOL 
                 MD5Str = md5char;
                 string DRCSGaiji_str = Get_dicHash_Char(MD5Str);
                 if (DRCSGaiji_str == "NF") {
-                    // „Éè„ÉÉ„Ç∑„É•ËæûÊõ∏ËøΩÂä†
-                    //DRCSGaiji_str = "[Â§ñ:"+ MD5Str + "]";
+                    // ÉnÉbÉVÉÖé´èëí«â¡
+                    //DRCSGaiji_str = "[äO:"+ MD5Str + "]";
                     DRCSGaiji_str = "";
                     Add_dicHash_Char(MD5Str, DRCSGaiji_str);
                     string BMPname = GetAppPath() + "\\Gaiji\\" + MD5Str + ".bmp";
                     WCHAR str[_MAX_PATH] = { 0 };
                     MultiByteToWideChar(932, 0, BMPname.c_str(), -1, str, _MAX_PATH);
-                    //„Éï„Ç°„Ç§„É´„Åå„Å™„Åë„Çå„Å∞Êõ∏„Åç„Åì„ÇÄ
+                    //ÉtÉ@ÉCÉãÇ™Ç»ÇØÇÍÇŒèëÇ´Ç±Çﬁ
                     HANDLE hFile = CreateFile(str, GENERIC_WRITE, 0, NULL, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
                     if (hFile != INVALID_HANDLE_VALUE) {
-                        //„Åì„Åì„ÅßÊñ∞Ë¶èËøΩÂä†
+                        //Ç±Ç±Ç≈êVãKí«â¡
                         DRCS_PATTERN drcs;
                         drcs.wDRCCode = wDRCCode;
                         drcs.wGradation = bDepth + 2;
 
                         DWORD dwSizeImage = 0;
-                        //„Éì„ÉÉ„Éà„Éû„ÉÉ„Éó„ÅÆ‰ªïÊßò„Å´„Çà„ÇäÂ∑¶‰∏ã„Åã„ÇâËµ∞Êüª
+                        //ÉrÉbÉgÉ}ÉbÉvÇÃédólÇ…ÇÊÇËç∂â∫Ç©ÇÁëñç∏
                         for (int y = bHeight - 1; y >= 0; y--) {
                             for (int x = 0; x < bWidth; x++) {
                                 int nPix = (bDepth == 0) ? GET_PIXEL_1(pbSrc + dwRead, y * bWidth + x) * 3
@@ -2027,7 +2027,7 @@ BOOL CARIB8CharDecode::DRCSHeaderparse(const BYTE *pbSrc, DWORD dwSrcSize, BOOL 
                                 else
                                     drcs.bBitmap[dwSizeImage - 1] |= (BYTE)nPix;
                             }
-                            //„Éì„ÉÉ„Éà„Éû„ÉÉ„Éó„ÅÆ‰ªïÊßò„Å´„Çà„Çä„Çπ„Éà„É©„Ç§„Éâ„Çí4„Éê„Ç§„ÉàÂ¢ÉÁïå„Å´„Åô„Çã
+                            //ÉrÉbÉgÉ}ÉbÉvÇÃédólÇ…ÇÊÇËÉXÉgÉâÉCÉhÇ4ÉoÉCÉgã´äEÇ…Ç∑ÇÈ
                             dwSizeImage = (dwSizeImage + 3) / 4 * 4;
                         }
                         BITMAPINFOHEADER bmiHeader = { 0 };
@@ -2040,7 +2040,7 @@ BOOL CARIB8CharDecode::DRCSHeaderparse(const BYTE *pbSrc, DWORD dwSrcSize, BOOL 
                         bmiHeader.biSizeImage = dwSizeImage;
                         drcs.bmiHeader = bmiHeader;
 
-                        //„Å©„Çì„Å™ÈÖçËâ≤„Å´„Åó„Å¶„ÇÇÊßã„Çè„Å™„ÅÑ„ÄÇcolors[4]‰ª•‰∏ä„ÅÆËâ≤„ÅØÂá∫Áèæ„Åó„Å™„ÅÑ
+                        //Ç«ÇÒÇ»îzêFÇ…ÇµÇƒÇ‡ç\ÇÌÇ»Ç¢ÅBcolors[4]à»è„ÇÃêFÇÕèoåªÇµÇ»Ç¢
                         RGBQUAD colors[16] = { {255, 255, 255, 0}, { 170, 170, 170, 0 }, { 85, 85, 85, 0 }, { 0, 0, 0, 0 } };
                         BITMAPFILEHEADER bmfHeader = { 0 };
                         bmfHeader.bfType = 0x4D42;

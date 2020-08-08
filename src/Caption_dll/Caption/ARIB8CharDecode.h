@@ -12,23 +12,23 @@ using namespace std;
 extern map<string, string> dicHash_Char_map;
 extern map<WORD, string> dicCharcode_Char_map;
 
-//æ–‡å­—ç¬¦å·é›†åˆ
-//Gã‚»ãƒƒãƒˆ
-#define MF_JIS_KANJI1   0x39    //JISäº’æ›æ¼¢å­—1é¢
-#define MF_JIS_KANJI2   0x3A    //JISäº’æ›æ¼¢å­—2é¢
-#define MF_KIGOU        0x3B    //è¿½åŠ è¨˜å·
-#define MF_ASCII        0x4A    //è‹±æ•°
-#define MF_HIRA         0x30    //å¹³ä»®å
-#define MF_KANA         0x31    //ç‰‡ä»®å
-#define MF_KANJI        0x42    //æ¼¢å­—
-#define MF_MOSAIC_A     0x32    //ãƒ¢ã‚¶ã‚¤ã‚¯A
-#define MF_MOSAIC_B     0x33    //ãƒ¢ã‚¶ã‚¤ã‚¯B
-#define MF_MOSAIC_C     0x34    //ãƒ¢ã‚¶ã‚¤ã‚¯C
-#define MF_MOSAIC_D     0x35    //ãƒ¢ã‚¶ã‚¤ã‚¯D
-#define MF_PROP_ASCII   0x36    //ãƒ—ãƒ­ãƒãƒ¼ã‚·ãƒ§ãƒŠãƒ«è‹±æ•°
-#define MF_PROP_HIRA    0x37    //ãƒ—ãƒ­ãƒãƒ¼ã‚·ãƒ§ãƒŠãƒ«å¹³ä»®å
-#define MF_PROP_KANA    0x38    //ãƒ—ãƒ­ãƒãƒ¼ã‚·ãƒ§ãƒŠãƒ«ç‰‡ä»®å
-#define MF_JISX_KANA    0x49    //JIX X0201ç‰‡ä»®å
+//•¶š•„†W‡
+//GƒZƒbƒg
+#define MF_JIS_KANJI1   0x39    //JISŒİŠ·Š¿š1–Ê
+#define MF_JIS_KANJI2   0x3A    //JISŒİŠ·Š¿š2–Ê
+#define MF_KIGOU        0x3B    //’Ç‰Á‹L†
+#define MF_ASCII        0x4A    //‰p”
+#define MF_HIRA         0x30    //•½‰¼–¼
+#define MF_KANA         0x31    //•Ğ‰¼–¼
+#define MF_KANJI        0x42    //Š¿š
+#define MF_MOSAIC_A     0x32    //ƒ‚ƒUƒCƒNA
+#define MF_MOSAIC_B     0x33    //ƒ‚ƒUƒCƒNB
+#define MF_MOSAIC_C     0x34    //ƒ‚ƒUƒCƒNC
+#define MF_MOSAIC_D     0x35    //ƒ‚ƒUƒCƒND
+#define MF_PROP_ASCII   0x36    //ƒvƒƒ|[ƒVƒ‡ƒiƒ‹‰p”
+#define MF_PROP_HIRA    0x37    //ƒvƒƒ|[ƒVƒ‡ƒiƒ‹•½‰¼–¼
+#define MF_PROP_KANA    0x38    //ƒvƒƒ|[ƒVƒ‡ƒiƒ‹•Ğ‰¼–¼
+#define MF_JISX_KANA    0x49    //JIX X0201•Ğ‰¼–¼
 //DRCS
 #define MF_DRCS_0   0x40    //DRCS-0
 #define MF_DRCS_1   0x41    //DRCS-1
@@ -46,14 +46,14 @@ extern map<WORD, string> dicCharcode_Char_map;
 #define MF_DRCS_13  0x4D    //DRCS-13
 #define MF_DRCS_14  0x4E    //DRCS-14
 #define MF_DRCS_15  0x4F    //DRCS-15
-#define MF_MACRO    0x70    //ãƒã‚¯ãƒ­
+#define MF_MACRO    0x70    //ƒ}ƒNƒ
 
-//ç¬¦å·é›†åˆã®åˆ†é¡
-#define MF_MODE_G       1   //Gã‚»ãƒƒãƒˆ
+//•„†W‡‚Ì•ª—Ş
+#define MF_MODE_G       1   //GƒZƒbƒg
 #define MF_MODE_DRCS    2   //DRCS
-#define MF_MODE_OTHER   3   //ãã®ä»–
+#define MF_MODE_OTHER   3   //‚»‚Ì‘¼
 
-//æ–‡å­—ã‚µã‚¤ã‚º
+//•¶šƒTƒCƒY
 typedef enum{
     STR_SMALL = 0,  //SSZ
     STR_MEDIUM,     //MSZ
@@ -85,7 +85,7 @@ typedef struct _CAPTION_CHAR_DATA {
     WORD wCharH;
     WORD wCharHInterval;
     WORD wCharVInterval;
-    //=ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ãƒ¼ã®å‡¦ç†
+    //=ƒIƒyƒŒ[ƒ^[‚Ìˆ—
     _CAPTION_CHAR_DATA & operator= (const _CAPTION_CHAR_DATA & o) {
         strDecode = o.strDecode;
         emCharSizeMode = o.emCharSizeMode;
@@ -116,7 +116,7 @@ typedef struct _CAPTION_DATA {
     WORD wPosY;
     vector<CAPTION_CHAR_DATA> CharList;
     DWORD dwWaitTime;
-    //=ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ãƒ¼ã®å‡¦ç†
+    //=ƒIƒyƒŒ[ƒ^[‚Ìˆ—
     _CAPTION_DATA & operator= (const _CAPTION_DATA & o) {
         bClear = o.bClear;
         wSWFMode = o.wSWFMode;
@@ -131,7 +131,7 @@ typedef struct _CAPTION_DATA {
         return *this;
     };
 } CAPTION_DATA;
-//DRCSå›³å½¢ã®ç¸¦æ¨ªæœ€å¤§ã‚µã‚¤ã‚º(é‹ç”¨è¦å®šã‚ˆã‚Š)
+//DRCS}Œ`‚Ìc‰¡Å‘åƒTƒCƒY(‰^—p‹K’è‚æ‚è)
 #define DRCS_SIZE_MAX 36
 
 struct DRCS_PATTERN {
@@ -148,15 +148,15 @@ public:
     CARIB8CharDecode(void);
     ~CARIB8CharDecode(void);
 
-    //å­—å¹•ã‚’æƒ³å®šã—ãŸSJISã¸ã®å¤‰æ›
+    //š–‹‚ğ‘z’è‚µ‚½SJIS‚Ö‚Ì•ÏŠ·
     BOOL Caption(const BYTE *pbSrc, DWORD dwSrcSize, vector<CAPTION_DATA> *pCaptionList);
-    //dllã®ãƒ‘ã‚¹ã®å–å¾—
+    //dll‚ÌƒpƒX‚Ìæ“¾
     string GetAppPath(void)
     {
         CHAR wkPath[_MAX_PATH], wkDrive[_MAX_DRIVE], wkDir[_MAX_DIR], wkFileName[_MAX_FNAME], wkExt[_MAX_EXT];
         DWORD dwRet = GetModuleFileNameA(NULL, wkPath, sizeof(wkPath));
         if (dwRet == 0) {
-            //ã‚¨ãƒ©ãƒ¼å‡¦ç†ãªã©(çœç•¥)
+            //ƒGƒ‰[ˆ—‚È‚Ç(È—ª)
         }
         _splitpath_s(wkPath, wkDrive, _MAX_DRIVE, wkDir, _MAX_DIR, wkFileName, _MAX_FNAME, wkExt, _MAX_EXT);
         string strAppPath = "";
@@ -168,10 +168,10 @@ public:
 
 protected:
     typedef struct _MF_MODE {
-        int iMF; //æ–‡å­—ç¬¦å·é›†åˆ
-        int iMode; //ç¬¦å·é›†åˆã®åˆ†é¡
-        int iByte; //èª­ã¿è¾¼ã¿ãƒã‚¤ãƒˆæ•°
-        //=ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ãƒ¼ã®å‡¦ç†
+        int iMF; //•¶š•„†W‡
+        int iMode; //•„†W‡‚Ì•ª—Ş
+        int iByte; //“Ç‚İ‚İƒoƒCƒg”
+        //=ƒIƒyƒŒ[ƒ^[‚Ìˆ—
         _MF_MODE & operator= (const _MF_MODE & o) {
             iMF = o.iMF;
             iMode = o.iMode;
@@ -191,12 +191,12 @@ protected:
 
     BOOL m_bModGL;
 
-    //ãƒ‡ã‚³ãƒ¼ãƒ‰ã—ãŸæ–‡å­—åˆ—
+    //ƒfƒR[ƒh‚µ‚½•¶š—ñ
     string m_strDecode;
-    //æ–‡å­—ã‚µã‚¤ã‚º
+    //•¶šƒTƒCƒY
     STRING_SIZE m_emStrSize;
 
-    //CLUTã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+    //CLUT‚ÌƒCƒ“ƒfƒbƒNƒX
     BYTE m_bCharColorIndex;
     BYTE m_bBackColorIndex;
     BYTE m_bRasterColorIndex;
@@ -212,14 +212,14 @@ protected:
     //map<int, string> dicCharcode_Char_map;
     WORD m_wMaxPosX;
     WORD m_wTmpPosX;
-    // RPCå¯¾å¿œ
+    // RPC‘Î‰
     BOOL m_bRPC;
     WORD m_wRPC;
-    // DRCSã¨ARIBã®ä»£ç”¨æ–‡å­—ç”¨iniãƒ•ã‚¡ã‚£ãƒ«ã®Unicode
+    // DRCS‚ÆARIB‚Ì‘ã—p•¶š—piniƒtƒ@ƒBƒ‹‚ÌUnicode
 //  BOOL m_bUnicode;
     BOOL m_bGaiji;
 
-    //è¡¨ç¤ºæ›¸å¼
+    //•\¦‘®
     WORD m_wSWFMode;
     WORD m_wClientX;
     WORD m_wClientY;
@@ -246,17 +246,17 @@ protected:
     void CreateCaptionCharData(CAPTION_CHAR_DATA *pItem);
     void CheckModify(void);
 
-    //åˆ¶å¾¡ç¬¦å·
+    //§Œä•„†
     BOOL C0(const BYTE *pbSrc, DWORD *pdwReadSize);
     BOOL C1(const BYTE *pbSrc, DWORD *pdwReadSize);
     BOOL GL(const BYTE *pbSrc, DWORD *pdwReadSize);
     BOOL GR(const BYTE *pbSrc, DWORD *pdwReadSize);
-    //ã‚·ãƒ³ã‚°ãƒ«ã‚·ãƒ•ãƒˆ
+    //ƒVƒ“ƒOƒ‹ƒVƒtƒg
     BOOL SS2(const BYTE *pbSrc, DWORD *pdwReadSize);
     BOOL SS3(const BYTE *pbSrc, DWORD *pdwReadSize);
-    //ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚·ãƒ¼ã‚±ãƒ³ã‚¹
+    //ƒGƒXƒP[ƒvƒV[ƒPƒ“ƒX
     BOOL ESC(const BYTE *pbSrc, DWORD *pdwReadSize);
-    //ï¼’ãƒã‚¤ãƒˆæ–‡å­—å¤‰æ›
+    //‚QƒoƒCƒg•¶š•ÏŠ·
     BOOL ToSJIS(const BYTE bFirst, const BYTE bSecond);
     BOOL ToCustomFont(const BYTE bFirst, const BYTE bSecond);
 

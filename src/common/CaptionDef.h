@@ -4,17 +4,17 @@
 #ifndef __CAPTION_DEF_H__
 #define __CAPTION_DEF_H__
 
-#define ERR_FALSE   FALSE   //汎用エラー
-#define NO_ERR      TRUE    //成功
+#define ERR_FALSE   FALSE   //�ėp�G���[
+#define NO_ERR      TRUE    //����
 
 #define ERR_INIT        10
 #define ERR_NOT_INIT    11
 #define ERR_SIZE        12
 
-#define ERR_NEED_NEXT_PACKET    13  //次のTSパケット入れないと解析できない
-#define ERR_CAN_NOT_ANALYZ      14  //本当にTSパケット？解析不可能
-#define ERR_NOT_FIRST           15  //最初のTSパケット未入力
-#define ERR_INVALID_PACKET      16  //本当にTSパケット？パケット飛んで壊れてるかも
+#define ERR_NEED_NEXT_PACKET    13  //����TS�p�P�b�g����Ȃ��Ɖ�͂ł��Ȃ�
+#define ERR_CAN_NOT_ANALYZ      14  //�{����TS�p�P�b�g�H��͕s�\
+#define ERR_NOT_FIRST           15  //�ŏ���TS�p�P�b�g������
+#define ERR_INVALID_PACKET      16  //�{����TS�p�P�b�g�H�p�P�b�g���ŉ��Ă邩��
 
 #define CHANGE_VERSION      20
 #define NO_ERR_TAG_INFO     21

@@ -13,7 +13,7 @@
 #include "CaptionMain.h"
 #include "packet_types.h"
 
-// ARIBã®è¿½åŠ è¨˜å· ï¼† è¿½åŠ æ¼¢å­—ã®ãƒ†ãƒ¼ãƒ–ãƒ«å®šç¾©
+// ARIB‚Ì’Ç‰Á‹L† • ’Ç‰ÁŠ¿š‚Ìƒe[ƒuƒ‹’è‹`
 #define GLOBAL
 #include "ARIBGaiji.h"
 
@@ -105,7 +105,7 @@ DWORD CCaptionMain::AddTSPacket(BYTE *pbPacket)
         return ERR_CAN_NOT_ANALYZ;
     }
 
-    //ãƒ‘ã‚±ãƒƒãƒˆã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ãƒã‚§ãƒƒã‚¯
+    //ƒpƒPƒbƒgƒJƒEƒ“ƒ^[ƒ`ƒFƒbƒN
     if (m_iLastCounter == -1)
         m_iLastCounter = (int)ph.Counter;
     else {
@@ -127,7 +127,7 @@ DWORD CCaptionMain::AddTSPacket(BYTE *pbPacket)
     DWORD dwStart = 4;
     BOOL bBeforeParse = FALSE;
 
-    //ã‚¢ãƒ€ãƒ—ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¯é£›ã°ã™
+    //ƒAƒ_ƒvƒe[ƒVƒ‡ƒ“ƒtƒB[ƒ‹ƒh‚Í”ò‚Î‚·
     if (ph.AdaptFlag == 1) {
         ucAdaptLength = pbPacket[4];
         dwStart++;
@@ -135,29 +135,29 @@ DWORD CCaptionMain::AddTSPacket(BYTE *pbPacket)
     }
 
     DWORD dwRet = NO_ERR;
-    //ãƒšã‚¤ãƒ­ãƒ¼ãƒ‰éƒ¨åˆ†ã‚ã‚Šï¼Ÿ
+    //ƒyƒCƒ[ƒh•”•ª‚ ‚èH
     if (ph.PayloadFlag == 1) {
         if (ph.PayloadStartFlag == 1) {
 //          ucPayloadOffset = pbPacket[dwStart];
 //          dwStart++;
         } else {
             if (m_PayloadList.size() == 0) {
-                //ãƒªã‚¹ãƒˆã«è²¯ã¾ã£ã¦ã„ãªã„ã®ã«é–‹å§‹ãƒ•ãƒ©ã‚°ã®ã¤ã„ãŸãƒ‘ã‚±ãƒƒãƒˆã˜ã‚ƒãªã„
+                //ƒŠƒXƒg‚É’™‚Ü‚Á‚Ä‚¢‚È‚¢‚Ì‚ÉŠJnƒtƒ‰ƒO‚Ì‚Â‚¢‚½ƒpƒPƒbƒg‚¶‚á‚È‚¢
                 Clear();
                 return ERR_NOT_FIRST;
             }
         }
         if (ucPayloadOffset != 0 && m_PayloadList.size()>0) {
-            //ã‚ªãƒ•ã‚»ãƒƒãƒˆã‚ã‚‹ã¨ã„ã†ã“ã¨ã¯å‰ã®ãƒ‡ãƒ¼ã‚¿ã‚ã‚Š
+            //ƒIƒtƒZƒbƒg‚ ‚é‚Æ‚¢‚¤‚±‚Æ‚Í‘O‚Ìƒf[ƒ^‚ ‚è
             if (dwStart + ucPayloadOffset > 188)
-                //ã‚µã‚¤ã‚º188ä»¥ä¸Šã¨ã‹ã‚ã‚Šãˆãªã„
+                //ƒTƒCƒY188ˆÈã‚Æ‚©‚ ‚è‚¦‚È‚¢
                 return ERR_INVALID_PACKET;
 
             PAYLOAD_DATA *stData = new PAYLOAD_DATA;
             stData->wSize = ucPayloadOffset;
             memcpy(stData->bBuff, pbPacket + dwStart, stData->wSize);
             m_PayloadList.push_back(stData);
-            //å…¨éƒ¨è²¯ã¾ã£ãŸã¯ãšãªã®ã§è§£æä½œæ¥­ã«å…¥ã‚‹
+            //‘S•”’™‚Ü‚Á‚½‚Í‚¸‚È‚Ì‚Å‰ğÍì‹Æ‚É“ü‚é
 
             dwRet = ParseListData();
             for (int i = 0; i < (int)m_PayloadList.size(); i++)
@@ -172,19 +172,19 @@ DWORD CCaptionMain::AddTSPacket(BYTE *pbPacket)
         dwStart += ucPayloadOffset;
 
         if ((m_bAnalyz == FALSE || dwStart > 188) && (ph.PayloadStartFlag == 1)) {
-            //è§£æã—ã¦ãªã„ã®ã«æ¬¡ã®é–‹å§‹ãƒ‘ã‚±ãƒƒãƒˆãŒããŸ
-            //ãƒ‘ã‚±ãƒƒãƒˆé£›ã‚“ã§ã‚‹å¯èƒ½æ€§ã‚ã‚‹ã®ã§ã‚¨ãƒ©ãƒ¼
+            //‰ğÍ‚µ‚Ä‚È‚¢‚Ì‚ÉŸ‚ÌŠJnƒpƒPƒbƒg‚ª‚«‚½
+            //ƒpƒPƒbƒg”ò‚ñ‚Å‚é‰Â”\«‚ ‚é‚Ì‚ÅƒGƒ‰[
             Clear();
             return ERR_INVALID_PACKET;
         }
         if (dwStart >= 188) {
-            //ã‚¢ãƒ€ãƒ—ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‹ä½•ã‹ã§ãƒšã‚¤ãƒ­ãƒ¼ãƒ‰ãªããªã£ãŸï¼Ÿ
+            //ƒAƒ_ƒvƒe[ƒVƒ‡ƒ“‚©‰½‚©‚ÅƒyƒCƒ[ƒh‚È‚­‚È‚Á‚½H
             Clear();
             return dwRet;
         }
         m_bAnalyz = FALSE;
 
-        //ã¨ã‚Šã‚ãˆãšãƒ‡ãƒ¼ã‚¿ã‚’ãƒªã‚¹ãƒˆã«çªã£è¾¼ã‚€
+        //‚Æ‚è‚ ‚¦‚¸ƒf[ƒ^‚ğƒŠƒXƒg‚É“Ë‚Á‚Ş
         PAYLOAD_DATA *stData = new PAYLOAD_DATA;
         stData->wSize = (WORD)(188 - dwStart);
         memcpy(stData->bBuff, pbPacket + dwStart, stData->wSize);
@@ -192,14 +192,14 @@ DWORD CCaptionMain::AddTSPacket(BYTE *pbPacket)
 
         BOOL bNext = TRUE;
         if (ph.PayloadStartFlag == 1) {
-            //ã‚¹ã‚¿ãƒ¼ãƒˆãƒ•ãƒ©ã‚°ãŸã£ã¦ã‚‹ã®ã§ã“ã‚Œã ã‘ã§ãƒ‡ãƒ¼ã‚¿ãŸã¾ã£ã¦ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
+            //ƒXƒ^[ƒgƒtƒ‰ƒO‚½‚Á‚Ä‚é‚Ì‚Å‚±‚ê‚¾‚¯‚Åƒf[ƒ^‚½‚Ü‚Á‚Ä‚é‚©ƒ`ƒFƒbƒN
             m_dwNowReadSize = 0;
             m_dwNeedSize = 0;
             while (m_dwNowReadSize + 3 < stData->wSize) {
                 if (stData->bBuff[0] != 0x00
                  || stData->bBuff[1] != 0x00
                  || stData->bBuff[2] != 0x01) {
-                    //PESã˜ã‚ƒãªã„ã®ã§ã‚¨ãƒ©ãƒ¼
+                    //PES‚¶‚á‚È‚¢‚Ì‚ÅƒGƒ‰[
                     Clear();
                     return ERR_INVALID_PACKET;
                 }
@@ -212,10 +212,10 @@ DWORD CCaptionMain::AddTSPacket(BYTE *pbPacket)
                 else
                     m_dwNowReadSize += dwSecSize;
 
-                //ã¾ã ç¶šãã‚ã‚Šï¼Ÿ
+                //‚Ü‚¾‘±‚«‚ ‚èH
                 if (m_dwNeedSize<stData->wSize)
                     if (stData->bBuff[m_dwNeedSize] == 0xFF) {
-                        //å¾Œã¯NULLãƒ‡ãƒ¼ã‚¿
+                        //Œã‚ÍNULLƒf[ƒ^
                         bNext = FALSE;
                         break;
                     }
@@ -224,7 +224,7 @@ DWORD CCaptionMain::AddTSPacket(BYTE *pbPacket)
             m_dwNowReadSize += stData->wSize;
 
         if (m_dwNeedSize <= m_dwNowReadSize || bNext == FALSE) {
-            //å…¨éƒ¨è²¯ã¾ã£ãŸã®ã§è§£æä½œæ¥­ã«å…¥ã‚‹
+            //‘S•”’™‚Ü‚Á‚½‚Ì‚Å‰ğÍì‹Æ‚É“ü‚é
             dwRet = ParseListData();
             for (int i = 0; i < (int)m_PayloadList.size(); i++)
                 SAFE_DELETE(m_PayloadList[i]);
@@ -250,7 +250,7 @@ CREATE_DATA:
 
 DWORD CCaptionMain::ParseListData(void)
 {
-    //ã¾ãšãƒãƒƒãƒ•ã‚¡ã‚’ä½œã‚‹
+    //‚Ü‚¸ƒoƒbƒtƒ@‚ğì‚é
     BYTE *pbBuff = NULL;
     DWORD dwBuffSize = 0;
     for (int i = 0; i < (int)m_PayloadList.size(); i++)
@@ -304,7 +304,7 @@ DWORD CCaptionMain::ParseCaption(BYTE *pbBuff, DWORD dwSize)
 
     DWORD dwRet = NO_ERR;
     if (ucDataGroupID == 0x00 || ucDataGroupID == 0x20) {
-        //å­—å¹•ç®¡ç†
+        //š–‹ŠÇ—
         vector<CAPTION_DATA> CaptionList;
         dwRet = ParseCaptionManagementData(pbBuff + dwStartPos, usDataGroupSize - 2, &CaptionList);
         if (CaptionList.size() > 0)
@@ -312,7 +312,7 @@ DWORD CCaptionMain::ParseCaption(BYTE *pbBuff, DWORD dwSize)
         if (dwRet == NO_ERR)
             dwRet = NO_ERR_TAG_INFO;
     } else {
-        //å­—å¹•ãƒ‡ãƒ¼ã‚¿
+        //š–‹ƒf[ƒ^
         vector<CAPTION_DATA> CaptionList;
         dwRet = ParseCaptionData(pbBuff + dwStartPos, usDataGroupSize - 2, &CaptionList);
         if (CaptionList.size() > 0)
@@ -375,7 +375,7 @@ DWORD CCaptionMain::ParseCaptionManagementData(BYTE *pbBuff, DWORD dwSize, vecto
     UINT uiUnitSize = ((UINT)(pbBuff[dwPos])) << 16 | ((UINT)(pbBuff[dwPos + 1])) << 8 | pbBuff[dwPos + 2];
     dwPos += 3;
     if (uiUnitSize > 0) {
-        //å­—å¹•ãƒ‡ãƒ¼ã‚¿
+        //š–‹ƒf[ƒ^
         DWORD dwReadSize = 0;
         while (dwReadSize < uiUnitSize) {
             DWORD dwSize = 0;
@@ -415,7 +415,7 @@ DWORD CCaptionMain::ParseCaptionData(BYTE *pbBuff, DWORD dwSize, vector<CAPTION_
     UINT uiUnitSize = ((UINT)(pbBuff[dwPos])) << 16 | ((UINT)(pbBuff[dwPos + 1])) << 8 | pbBuff[dwPos + 2];
     dwPos += 3;
     if (uiUnitSize > 0) {
-        //å­—å¹•ãƒ‡ãƒ¼ã‚¿
+        //š–‹ƒf[ƒ^
         DWORD dwReadSize = 0;
         while (dwReadSize < uiUnitSize) {
             DWORD dwSize = 0;
@@ -439,9 +439,9 @@ DWORD CCaptionMain::ParseUnitData(BYTE *pbBuff, DWORD dwSize, DWORD *pdwReadSize
         return ERR_FALSE;
 
     if (pbBuff[1] != 0x20) {
-        //å­—å¹•æ–‡(æœ¬æ–‡)ä»¥å¤–
+        //š–‹•¶(–{•¶)ˆÈŠO
         if (pbBuff[1] == 0x30 || pbBuff[1] == 0x31)
-            //DRCSå‡¦ç†
+            //DRCSˆ—
             if (uiUnitSize > 0) {
                 CARIB8CharDecode cDec;
                 cDec.DRCSHeaderparse(pbBuff + 5, uiUnitSize, (pbBuff[1] == 0x31) ? TRUE : FALSE);

@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// Caption.cpp : DLL アプリケーション用にエクスポートされる関数を定義します。
+// Caption.cpp : DLL �A�v���P�[�V�����p�ɃG�N�X�|�[�g�����֐����`���܂��B
 //------------------------------------------------------------------------------
 #pragma warning(disable: 4100)
 
@@ -46,22 +46,22 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
     return TRUE;
 }
 
-//DLLの初期化
-//戻り値：エラーコード
+//DLL�̏�����
+//�߂�l�F�G���[�R�[�h
 DWORD WINAPI InitializeCP(void)
 {
     return initialize(FALSE);
 }
 
-//DLLの初期化 UNICODE対応
-//戻り値：エラーコード
+//DLL�̏����� UNICODE�Ή�
+//�߂�l�F�G���[�R�[�h
 DWORD WINAPI InitializeUNICODE(void)
 {
     return initialize(TRUE);
 }
 
-//DLLの開放
-//戻り値：エラーコード
+//DLL�̊J��
+//�߂�l�F�G���[�R�[�h
 DWORD WINAPI UnInitializeCP(void)
 {
     uninitialize();

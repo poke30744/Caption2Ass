@@ -3,6 +3,8 @@
 //------------------------------------------------------------------------------
 #pragma warning(disable: 4100)
 
+#include <Windows.h>
+
 #include "CalcMD5.h"
 #include "CommRoutine.h"
 #include "ColorDef.h"

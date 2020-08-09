@@ -4,6 +4,8 @@
 
 #include <stdio.h>
 
+#include <Windows.h>
+
 #include "CalcMD5.h"
 
 BOOL CalcMD5FromDRCSPattern(BYTE *pbHash, char *pcHashStr, const BYTE *pbPatternData, const DWORD dwDataLen)

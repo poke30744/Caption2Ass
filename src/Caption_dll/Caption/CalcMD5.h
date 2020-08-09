@@ -4,7 +4,7 @@
 #ifndef __CALC_MD5_H__
 #define __CALC_MD5_H__
 
-#include <wtypes.h>
+#include <minwindef.h>
 
 #define MD5_HASH_HEX_LENGTH     32
 

@@ -95,33 +95,6 @@ static const char HalfKanaTable[][3] = {
     "ÅS", "∞", "°", "¢", "£", "§", "•"
 };
 
-#ifdef _DEBUG
-extern VOID DbgString(IN  LPCTSTR tracemsg, ...)
-{
-    TCHAR buf[MAX_DEBUG_OUTPUT_LENGTH] = { 0 };
-    HRESULT ret;
-
-    __try {
-        va_list ptr;
-        va_start(ptr, tracemsg);
-
-        ret = StringCchVPrintf(
-            buf,
-            2048,
-            tracemsg,
-            ptr
-            );
-
-        if (ret == S_OK)
-            OutputDebugString(buf);
-    }
-    __finally {
-    }
-
-    return;
-}
-#endif
-
 extern std::string GetHalfChar(std::string key)
 {
 //  std::string ret;

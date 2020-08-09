@@ -2,8 +2,6 @@
 // Caption2AssParameter.cpp
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"
-
 #include "CaptionDef.h"
 #include "Caption2Ass_PCR.h"
 

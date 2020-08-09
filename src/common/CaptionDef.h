@@ -4,6 +4,8 @@
 #ifndef __CAPTION_DEF_H__
 #define __CAPTION_DEF_H__
 
+#include <wtypes.h>
+
 #define ERR_FALSE   FALSE   //”Ä—pƒGƒ‰[
 #define NO_ERR      TRUE    //¬Œ÷
 

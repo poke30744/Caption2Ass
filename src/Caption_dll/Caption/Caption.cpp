@@ -3,8 +3,6 @@
 //------------------------------------------------------------------------------
 #pragma warning(disable: 4100)
 
-#include "stdafx.h"
-
 #include "CaptionDef.h"
 #include "ColorDef.h"
 #include "ARIB8CharDecode.h"

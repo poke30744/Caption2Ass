@@ -45,12 +45,6 @@
     <ClInclude Include="IniFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="tslUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,9 +60,6 @@
     <ClInclude Include="..\common\packet_types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\targetver.h">
-      <Filter>Header Files\common</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
@@ -77,19 +68,11 @@
     <Filter Include="Header Files">
       <UniqueIdentifier>{528e3b64-17dc-4782-9706-d256344a36d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{ee9eac07-5bff-4ef1-a960-747790b787b1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\common">
       <UniqueIdentifier>{7d9bf529-cf93-41f5-8d68-2921d201d5d4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\common">
       <UniqueIdentifier>{bd34b798-fbb8-424c-9b69-77577e7a6677}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Caption2Ass_PCR.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

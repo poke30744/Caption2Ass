@@ -4,7 +4,7 @@
 #ifndef __PACKET_TYPES_H__
 #define __PACKET_TYPES_H__
 
-#include <windows.h>
+#include <wtypes.h>
 
 typedef struct Packet_Header {
     BYTE    Sync;

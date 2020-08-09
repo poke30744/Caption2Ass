@@ -4,7 +4,7 @@
 #ifndef __CAPTION2ASS_PARAMETER_H__
 #define __CAPTION2ASS_PARAMETER_H__
 
-#include <tchar.h>
+#include <wtypes.h>
 
 typedef struct {
     USHORT      PMTPid;

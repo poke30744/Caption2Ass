@@ -3,7 +3,6 @@
 //------------------------------------------------------------------------------
 #pragma warning(disable: 4100)
 
-#include "stdafx.h"
 #include <map>
 
 #include "CaptionDef.h"

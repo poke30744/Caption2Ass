@@ -4,8 +4,8 @@
 #ifndef __COMM_ROUTINE_H__
 #define __COMM_ROUTINE_H__
 
-#include <windows.h>
-#include <tchar.h>
+#include <wtypes.h>
+
 #include <string>
 
 #define MAX_DEBUG_OUTPUT_LENGTH     2048

@@ -2,8 +2,6 @@
 // IniFile.cpp
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"
-
 #include "CaptionDef.h"
 #include "ColorDef.h"
 #include "ARIB8CharDecode.h"

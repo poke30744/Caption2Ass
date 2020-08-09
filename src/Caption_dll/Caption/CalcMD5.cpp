@@ -2,7 +2,7 @@
 // CalcMD5.cpp
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#include <stdio.h>
 
 #include "CalcMD5.h"
 

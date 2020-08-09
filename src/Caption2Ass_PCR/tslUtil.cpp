@@ -2,7 +2,7 @@
 // tslUtil.cpp
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#include <stdio.h>
 
 #include "cmdline.h"
 #include "tslUtil.h"

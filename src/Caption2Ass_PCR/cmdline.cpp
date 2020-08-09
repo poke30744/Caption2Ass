@@ -2,7 +2,6 @@
 // cmdline.cpp
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"
 #include <strsafe.h>
 
 #include "cmdline.h"

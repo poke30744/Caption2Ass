@@ -2,7 +2,7 @@
 // CaptionDllUtil.cpp
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#include <tchar.h>
 
 #include "CaptionDllUtil.h"
 #include "CaptionDef.h"

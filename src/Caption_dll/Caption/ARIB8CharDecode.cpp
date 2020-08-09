@@ -3,8 +3,6 @@
 //------------------------------------------------------------------------------
 #pragma warning(disable: 4100)
 
-#include "stdafx.h"
-
 #include "CalcMD5.h"
 #include "CommRoutine.h"
 #include "ColorDef.h"

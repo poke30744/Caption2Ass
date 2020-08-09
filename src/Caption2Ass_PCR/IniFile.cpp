@@ -2,8 +2,9 @@
 //IniFile.cpp
 //------------------------------------------------------------------------------
 
-#include "stdafx.h"
 #include <shlwapi.h>
+
+#include <stdio.h>
 
 #include "IniFile.h"
 #include "CaptionDef.h"

@@ -1,7 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Caption2AssC", "Caption2Ass_PCR\Caption2Ass_PCR.vcxproj", "{35A21733-362A-4CF2-9FD7-9CDABC5E773B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60BC8339-018F-4AF1-A09C-EDAF70A007B7} = {60BC8339-018F-4AF1-A09C-EDAF70A007B7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Caption", "Caption_dll\Caption\Caption.vcxproj", "{60BC8339-018F-4AF1-A09C-EDAF70A007B7}"
 EndProject
@@ -32,5 +37,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DC16D85-83F3-4895-BB42-10A71F16908A}
 	EndGlobalSection
 EndGlobal

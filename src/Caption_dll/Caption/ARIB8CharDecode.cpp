@@ -4,6 +4,7 @@
 #pragma warning(disable: 4100)
 
 #include <Windows.h>
+#include <assert.h>
 
 #include "CalcMD5.h"
 #include "CommRoutine.h"
@@ -1994,11 +1995,7 @@ BOOL CARIB8CharDecode::DRCSHeaderparse(const BYTE *pbSrc, DWORD dwSrcSize, BOOL 
             if (bFirstFont) {
                 bFirstFont = FALSE;
                 DWORD dwDRCS_pat_size = (bHeight * bWidth + bPixPerByte - 1) / bPixPerByte;
-                BYTE md5[MD5_HASH_HEX_LENGTH / 2] = { 0 };
-                char md5char[MD5_HASH_HEX_LENGTH + 1] = { 0 };
-                string MD5Str = "";
-                CalcMD5FromDRCSPattern(md5, md5char, pbSrc + dwRead, dwDRCS_pat_size);
-                MD5Str = md5char;
+                string MD5Str = CalcMD5::md5sum(pbSrc + dwRead, dwDRCS_pat_size);
                 string DRCSGaiji_str = Get_dicHash_Char(MD5Str);
                 if (DRCSGaiji_str == "NF") {
                     // ÉnÉbÉVÉÖé´èëí«â¡

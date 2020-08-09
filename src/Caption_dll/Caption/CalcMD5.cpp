@@ -2,41 +2,20 @@
 // CalcMD5.cpp
 //------------------------------------------------------------------------------
 
-#include <stdio.h>
-
-#include <Windows.h>
+#include <boost/uuid/detail/md5.hpp>
+#include <boost/algorithm/hex.hpp>
 
 #include "CalcMD5.h"
 
-BOOL CalcMD5FromDRCSPattern(BYTE *pbHash, char *pcHashStr, const BYTE *pbPatternData, const DWORD dwDataLen)
+std::string CalcMD5::md5sum(void const* buffer, std::size_t byte_count)
 {
-    HCRYPTPROV hProv = NULL;
-    HCRYPTHASH hHash = NULL;
-    BOOL bRet = FALSE;
-    if (!::CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT)) {
-        hProv = NULL;
-        goto EXIT;
-    }
-    if (!::CryptCreateHash(hProv, CALG_MD5, 0, 0, &hHash)) {
-        hHash = NULL;
-        goto EXIT;
-    }
-    if (!::CryptHashData(hHash, pbPatternData, dwDataLen, 0))
-        goto EXIT;
-    DWORD dwHashLen = 16;
-    if (!::CryptGetHashParam(hHash, HP_HASHVAL, pbHash, &dwHashLen, 0))
-        goto EXIT;
-    char MD5tmp[10];
-    for (DWORD i = 0; i < dwHashLen; i++) {
-        sprintf_s(MD5tmp, 10, "%02X", pbHash[i]);
-        strcat_s(pcHashStr, MD5_HASH_HEX_LENGTH + 1, MD5tmp);
-    }
-    bRet = TRUE;
+    boost::uuids::detail::md5 hash;
+    boost::uuids::detail::md5::digest_type digest;
 
-EXIT:
-    if (hHash)
-        ::CryptDestroyHash(hHash);
-    if (hProv)
-        ::CryptReleaseContext(hProv, 0);
-    return bRet;
+    hash.process_bytes(buffer, byte_count);
+    hash.get_digest(digest);
+
+    std::string result;
+    boost::algorithm::hex(digest, digest + _countof(digest), std::back_inserter(result));
+    return result;
 }

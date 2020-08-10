@@ -70,5 +70,11 @@
     <ClInclude Include="..\..\common\CommRoutine.h">
       <Filter>Header Files\common</Filter>
     </ClInclude>
+    <ClInclude Include="ARIBGaiji.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\common\CommTypes.h">
+      <Filter>Header Files\common</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

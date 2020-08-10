@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 
+#include "CommTypes.h"
+
 using namespace std;
 
 typedef struct _CLUT_DAT {
@@ -58,17 +60,17 @@ typedef struct _CAPTION_CHAR_DATA {
     CLUT_DAT stBackColor;
     CLUT_DAT stRasterColor;
 
-    BOOL bUnderLine;
-    BOOL bShadow;
-    BOOL bBold;
-    BOOL bItalic;
-    BYTE bFlushMode;
-    BYTE bHLC;  //must ignore low 4bits
+    bool_t bUnderLine;
+    bool_t bShadow;
+    bool_t bBold;
+    bool_t bItalic;
+    byte_t bFlushMode;
+    byte_t bHLC;  //must ignore low 4bits
 
-    WORD wCharW;
-    WORD wCharH;
-    WORD wCharHInterval;
-    WORD wCharVInterval;
+    word_t wCharW;
+    word_t wCharH;
+    word_t wCharHInterval;
+    word_t wCharVInterval;
     _CAPTION_CHAR_DATA & operator= (const _CAPTION_CHAR_DATA & o) {
         strDecode=o.strDecode;
         emCharSizeMode = o.emCharSizeMode;
@@ -89,16 +91,16 @@ typedef struct _CAPTION_CHAR_DATA {
 } CAPTION_CHAR_DATA;
 
 typedef struct _CAPTION_DATA {
-    BOOL bClear;
-    WORD wSWFMode;
-    WORD wClientX;
-    WORD wClientY;
-    WORD wClientW;
-    WORD wClientH;
-    WORD wPosX;
-    WORD wPosY;
+    bool_t bClear;
+    word_t wSWFMode;
+    word_t wClientX;
+    word_t wClientY;
+    word_t wClientW;
+    word_t wClientH;
+    word_t wPosX;
+    word_t wPosY;
     vector<CAPTION_CHAR_DATA> CharList;
-    DWORD dwWaitTime;
+    dword_t dwWaitTime;
 
     _CAPTION_DATA & operator= (const _CAPTION_DATA & o) {
         bClear=o.bClear;
@@ -121,16 +123,16 @@ public:
     CCaptionDllUtil(void);
     ~CCaptionDllUtil(void);
 
-    DWORD Initialize(void);
-    BOOL CheckUNICODE(void);
-    DWORD InitializeUNICODE(void);
-    DWORD UnInitialize(void);
-    DWORD AddTSPacket(BYTE *pbPacket);
-    DWORD Clear(void);
-    DWORD GetTagInfo(LANG_TAG_INFO_DLL **ppList, DWORD *pdwListCount);
-    DWORD GetTagInfo(vector<LANG_TAG_INFO> *pList);
-    DWORD GetCaptionData(unsigned char ucLangTag, CAPTION_DATA_DLL **ppList, DWORD *pdwListCount);
-    DWORD GetCaptionData(unsigned char ucLangTag, vector<CAPTION_DATA> *pList);
+    dword_t Initialize(void);
+    bool_t CheckUNICODE(void);
+    dword_t InitializeUNICODE(void);
+    dword_t UnInitialize(void);
+    dword_t AddTSPacket(byte_t *pbPacket);
+    dword_t Clear(void);
+    dword_t GetTagInfo(LANG_TAG_INFO_DLL **ppList, dword_t *pdwListCount);
+    dword_t GetTagInfo(vector<LANG_TAG_INFO> *pList);
+    dword_t GetCaptionData(unsigned char ucLangTag, CAPTION_DATA_DLL **ppList, dword_t *pdwListCount);
+    dword_t GetCaptionData(unsigned char ucLangTag, vector<CAPTION_DATA> *pList);
 
 protected:
     HMODULE m_hModule;
@@ -144,8 +146,8 @@ protected:
     GetCaptionDataCP pfnGetCaptionDataCP;
 
 protected:
-    BOOL LoadDll(void);
-    BOOL UnLoadDll(void);
+    bool_t LoadDll(void);
+    bool_t UnLoadDll(void);
 };
 
 #endif // __CAPTION_DLL_UTIL_H__

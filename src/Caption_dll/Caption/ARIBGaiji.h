@@ -6,6 +6,8 @@
 
 #include <string>
 
+#include "CommTypes.h"
+
 #ifdef GLOBAL
 #define EXTERN
 #else
@@ -27,6 +29,6 @@ EXTERN GAIJI_TABLE GaijiTable[ARIB_MAX];
 
 EXTERN GAIJI_TABLE GaijiTbl2[ARIB_MAX2];
 
-EXTERN BOOL m_bUnicode;
+EXTERN bool_t m_bUnicode;
 
 #endif // __ARIB_GAIJI_H__

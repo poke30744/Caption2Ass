@@ -181,6 +181,7 @@
     <ClInclude Include="..\common\Caption.h" />
     <ClInclude Include="..\common\CaptionDef.h" />
     <ClInclude Include="..\common\CommRoutine.h" />
+    <ClInclude Include="..\common\CommTypes.h" />
     <ClInclude Include="..\common\packet_types.h" />
     <ClInclude Include="ass_header.h" />
     <ClInclude Include="Caption2Ass_PCR.h" />

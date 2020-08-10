@@ -67,7 +67,7 @@ int CCaption2AssParameter::Allocate(size_t string_length)
     }
 
 	// Allocate char buffers.
-   CHAR **utf8str_list[] = {
+   char **utf8str_list[] = {
         // cli_parameter_t
         // ass_setting_t
         &(as->Comment1),
@@ -83,10 +83,10 @@ int CCaption2AssParameter::Allocate(size_t string_length)
         NULL
     };
     for (int i = 0; utf8str_list[i]; i++) {
-        *(utf8str_list[i]) = new CHAR[this->string_length];
+        *(utf8str_list[i]) = new char[this->string_length];
         if (!*(utf8str_list[i]))
             goto fail;
-        memset(*(utf8str_list[i]), 0, sizeof(CHAR) * this->string_length);
+        memset(*(utf8str_list[i]), 0, sizeof(char) * this->string_length);
     }
 
     return 0;
@@ -113,7 +113,7 @@ void CCaption2AssParameter::Free(void)
         NULL
     };
 		// Allocate char buffers.
-   CHAR **utf8str_list[] = {
+   char **utf8str_list[] = {
         // cli_parameter_t
         // ass_setting_t
         &(as->Comment1),

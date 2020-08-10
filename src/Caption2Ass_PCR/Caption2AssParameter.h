@@ -4,28 +4,28 @@
 #ifndef __CAPTION2ASS_PARAMETER_H__
 #define __CAPTION2ASS_PARAMETER_H__
 
-#include <wtypes.h>
+#include "CommTypes.h"
 
 typedef struct {
-    USHORT      PMTPid;
-    USHORT      CaptionPid;
-    USHORT      PCRPid;
+    ushort_t      PMTPid;
+    ushort_t      CaptionPid;
+    ushort_t      PCRPid;
 } pid_information_t;
 
 typedef struct {
-    DWORD       format;
+    dword_t       format;
     long        DelayTime;
-    BOOL        keepInterval;
-    BYTE        HLCmode;
-    BOOL        srtornament;
-    BOOL        norubi;
-    BOOL        LogMode;
-    DWORD       detectLength;
+    bool_t        keepInterval;
+    byte_t        HLCmode;
+    bool_t        srtornament;
+    bool_t        norubi;
+    bool_t        LogMode;
+    dword_t       detectLength;
     TCHAR      *ass_type;
     TCHAR      *FileName;
     TCHAR      *TargetFileName;
     TCHAR      *LogFileName;
-	BOOL		alignCenter;
+	bool_t		alignCenter;
 } cli_parameter_t;
 
 typedef struct {
@@ -34,20 +34,20 @@ typedef struct {
     long        SWF7offset;
     long        SWF9offset;
     long        SWF11offset;
-    CHAR      *Comment1;
-    CHAR      *Comment2;
-    CHAR      *Comment3;
+    char      *Comment1;
+    char      *Comment2;
+    char      *Comment3;
     long        PlayResX;
     long        PlayResY;
-    CHAR      *DefaultFontname;
+    char      *DefaultFontname;
     long        DefaultFontsize;
-    CHAR      *DefaultStyle;
-    CHAR      *BoxFontname;
+    char      *DefaultStyle;
+    char      *BoxFontname;
     long        BoxFontsize;
-    CHAR      *BoxStyle;
-    CHAR      *RubiFontname;
+    char      *BoxStyle;
+    char      *RubiFontname;
     long        RubiFontsize;
-    CHAR      *RubiStyle;
+    char      *RubiStyle;
 	bool		aligncenter;
 } ass_setting_t;
 

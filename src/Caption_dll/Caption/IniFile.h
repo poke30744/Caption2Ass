@@ -4,15 +4,17 @@
 #ifndef __INI_FILE_H__
 #define __INI_FILE_H__
 
+#include "CommTypes.h"
+
 //ref class IniFile
 class IniFile
 {
 
 public:
-    BOOL IniFile::ReadIni(void);
-    BOOL IniFile::ReadIniARIB(void);
-    BOOL IniFile::ReadIniUNICODE(void);
-    BOOL IniFile::ReadIniARIBUNICODE(void);
+    bool_t IniFile::ReadIni(void);
+    bool_t IniFile::ReadIniARIB(void);
+    bool_t IniFile::ReadIniUNICODE(void);
+    bool_t IniFile::ReadIniARIBUNICODE(void);
 
 };
 

@@ -9,8 +9,12 @@
 #include <map>
 using namespace std;
 
+#include <Windows.h>
+
+#include "CommTypes.h"
+
 extern map<string, string> dicHash_Char_map;
-extern map<WORD, string> dicCharcode_Char_map;
+extern map<word_t, string> dicCharcode_Char_map;
 
 //文字符号集合
 //Gセット
@@ -74,17 +78,17 @@ typedef struct _CAPTION_CHAR_DATA {
     CLUT_DAT stBackColor;
     CLUT_DAT stRasterColor;
 
-    BOOL bUnderLine;
-    BOOL bShadow;
-    BOOL bBold;
-    BOOL bItalic;
-    BYTE bFlushMode;
-    BYTE bHLC; //must ignore low 4bits
+    bool_t bUnderLine;
+    bool_t bShadow;
+    bool_t bBold;
+    bool_t bItalic;
+    byte_t bFlushMode;
+    byte_t bHLC; //must ignore low 4bits
 
-    WORD wCharW;
-    WORD wCharH;
-    WORD wCharHInterval;
-    WORD wCharVInterval;
+    word_t wCharW;
+    word_t wCharH;
+    word_t wCharHInterval;
+    word_t wCharVInterval;
     //=オペレーターの処理
     _CAPTION_CHAR_DATA & operator= (const _CAPTION_CHAR_DATA & o) {
         strDecode = o.strDecode;
@@ -106,16 +110,16 @@ typedef struct _CAPTION_CHAR_DATA {
 } CAPTION_CHAR_DATA;
 
 typedef struct _CAPTION_DATA {
-    BOOL bClear;
-    WORD wSWFMode;
-    WORD wClientX;
-    WORD wClientY;
-    WORD wClientW;
-    WORD wClientH;
-    WORD wPosX;
-    WORD wPosY;
+    bool_t bClear;
+    word_t wSWFMode;
+    word_t wClientX;
+    word_t wClientY;
+    word_t wClientW;
+    word_t wClientH;
+    word_t wPosX;
+    word_t wPosY;
     vector<CAPTION_CHAR_DATA> CharList;
-    DWORD dwWaitTime;
+    dword_t dwWaitTime;
     //=オペレーターの処理
     _CAPTION_DATA & operator= (const _CAPTION_DATA & o) {
         bClear = o.bClear;
@@ -135,10 +139,10 @@ typedef struct _CAPTION_DATA {
 #define DRCS_SIZE_MAX 36
 
 struct DRCS_PATTERN {
-    WORD wDRCCode;
-    WORD wGradation;
+    word_t wDRCCode;
+    word_t wGradation;
     BITMAPINFOHEADER bmiHeader;
-    BYTE bBitmap[(DRCS_SIZE_MAX * 4 + 31) / 32 * 4 * DRCS_SIZE_MAX];
+    byte_t bBitmap[(DRCS_SIZE_MAX * 4 + 31) / 32 * 4 * DRCS_SIZE_MAX];
     DRCS_PATTERN() {}
 };
 
@@ -149,12 +153,12 @@ public:
     ~CARIB8CharDecode(void);
 
     //字幕を想定したSJISへの変換
-    BOOL Caption(const BYTE *pbSrc, DWORD dwSrcSize, vector<CAPTION_DATA> *pCaptionList);
+    bool_t Caption(const byte_t *pbSrc, dword_t dwSrcSize, vector<CAPTION_DATA> *pCaptionList);
     //dllのパスの取得
     string GetAppPath(void)
     {
-        CHAR wkPath[_MAX_PATH], wkDrive[_MAX_DRIVE], wkDir[_MAX_DIR], wkFileName[_MAX_FNAME], wkExt[_MAX_EXT];
-        DWORD dwRet = GetModuleFileNameA(NULL, wkPath, sizeof(wkPath));
+        char wkPath[_MAX_PATH], wkDrive[_MAX_DRIVE], wkDir[_MAX_DIR], wkFileName[_MAX_FNAME], wkExt[_MAX_EXT];
+        dword_t dwRet = GetModuleFileNameA(NULL, wkPath, sizeof(wkPath));
         if (dwRet == 0) {
             //エラー処理など(省略)
         }
@@ -164,7 +168,7 @@ public:
         strAppPath += wkDir;
         return strAppPath;
     }
-    BOOL CARIB8CharDecode::DRCSHeaderparse(const BYTE *pbSrc, DWORD dwSrcSize, BOOL bDRCS_0);
+    bool_t CARIB8CharDecode::DRCSHeaderparse(const byte_t *pbSrc, dword_t dwSrcSize, bool_t bDRCS_0);
 
 protected:
     typedef struct _MF_MODE {
@@ -180,7 +184,7 @@ protected:
         }
     } MF_MODE;
 
-    BOOL m_bPSI;
+    bool_t m_bPSI;
 
     MF_MODE  m_G0;
     MF_MODE  m_G1;
@@ -189,7 +193,7 @@ protected:
     MF_MODE *m_GL;
     MF_MODE *m_GR;
 
-    BOOL m_bModGL;
+    bool_t m_bModGL;
 
     //デコードした文字列
     string m_strDecode;
@@ -197,86 +201,86 @@ protected:
     STRING_SIZE m_emStrSize;
 
     //CLUTのインデックス
-    BYTE m_bCharColorIndex;
-    BYTE m_bBackColorIndex;
-    BYTE m_bRasterColorIndex;
-    BYTE m_bDefPalette;
+    byte_t m_bCharColorIndex;
+    byte_t m_bBackColorIndex;
+    byte_t m_bRasterColorIndex;
+    byte_t m_bDefPalette;
 
-    BOOL m_bUnderLine;
-    BOOL m_bShadow;
-    BOOL m_bBold;
-    BOOL m_bItalic;
-    BYTE m_bFlushMode;
-    BYTE m_bHLC;
+    bool_t m_bUnderLine;
+    bool_t m_bShadow;
+    bool_t m_bBold;
+    bool_t m_bItalic;
+    byte_t m_bFlushMode;
+    byte_t m_bHLC;
     //map<string, string> dicHash_Char_map;
     //map<int, string> dicCharcode_Char_map;
-    WORD m_wMaxPosX;
-    WORD m_wTmpPosX;
+    word_t m_wMaxPosX;
+    word_t m_wTmpPosX;
     // RPC対応
-    BOOL m_bRPC;
-    WORD m_wRPC;
+    bool_t m_bRPC;
+    word_t m_wRPC;
     // DRCSとARIBの代用文字用iniファィルのUnicode
-//  BOOL m_bUnicode;
-    BOOL m_bGaiji;
+//  bool_t m_bUnicode;
+    bool_t m_bGaiji;
 
     //表示書式
-    WORD m_wSWFMode;
-    WORD m_wClientX;
-    WORD m_wClientY;
-    WORD m_wClientW;
-    WORD m_wClientH;
-    WORD m_wPosX;
-    WORD m_wPosY;
-    WORD m_wCharW;
-    WORD m_wCharH;
-    WORD m_wCharHInterval;
-    WORD m_wCharVInterval;
-    WORD m_wMaxChar;
+    word_t m_wSWFMode;
+    word_t m_wClientX;
+    word_t m_wClientY;
+    word_t m_wClientW;
+    word_t m_wClientH;
+    word_t m_wPosX;
+    word_t m_wPosY;
+    word_t m_wCharW;
+    word_t m_wCharH;
+    word_t m_wCharHInterval;
+    word_t m_wCharVInterval;
+    word_t m_wMaxChar;
 
-    DWORD m_dwWaitTime;
+    dword_t m_dwWaitTime;
 
     vector<CAPTION_DATA> *m_pCaptionList;
 protected:
     void InitCaption(void);
-    BOOL Analyze(const BYTE *pbSrc, DWORD dwSrcSize, DWORD *pdwReadSize);
+    bool_t Analyze(const byte_t *pbSrc, dword_t dwSrcSize, dword_t *pdwReadSize);
 
-    BOOL IsSmallCharMode(void);
-    BOOL IsChgPos(void);
+    bool_t IsSmallCharMode(void);
+    bool_t IsChgPos(void);
     void CreateCaptionData(CAPTION_DATA *pItem);
     void CreateCaptionCharData(CAPTION_CHAR_DATA *pItem);
     void CheckModify(void);
 
     //制御符号
-    BOOL C0(const BYTE *pbSrc, DWORD *pdwReadSize);
-    BOOL C1(const BYTE *pbSrc, DWORD *pdwReadSize);
-    BOOL GL(const BYTE *pbSrc, DWORD *pdwReadSize);
-    BOOL GR(const BYTE *pbSrc, DWORD *pdwReadSize);
+    bool_t C0(const byte_t *pbSrc, dword_t *pdwReadSize);
+    bool_t C1(const byte_t *pbSrc, dword_t *pdwReadSize);
+    bool_t GL(const byte_t *pbSrc, dword_t *pdwReadSize);
+    bool_t GR(const byte_t *pbSrc, dword_t *pdwReadSize);
     //シングルシフト
-    BOOL SS2(const BYTE *pbSrc, DWORD *pdwReadSize);
-    BOOL SS3(const BYTE *pbSrc, DWORD *pdwReadSize);
+    bool_t SS2(const byte_t *pbSrc, dword_t *pdwReadSize);
+    bool_t SS3(const byte_t *pbSrc, dword_t *pdwReadSize);
     //エスケープシーケンス
-    BOOL ESC(const BYTE *pbSrc, DWORD *pdwReadSize);
+    bool_t ESC(const byte_t *pbSrc, dword_t *pdwReadSize);
     //２バイト文字変換
-    BOOL ToSJIS(const BYTE bFirst, const BYTE bSecond);
-    BOOL ToCustomFont(const BYTE bFirst, const BYTE bSecond);
+    bool_t ToSJIS(const byte_t bFirst, const byte_t bSecond);
+    bool_t ToCustomFont(const byte_t bFirst, const byte_t bSecond);
 
-    BOOL CSI(const BYTE *pbSrc, DWORD *pdwReadSize);
+    bool_t CSI(const byte_t *pbSrc, dword_t *pdwReadSize);
 
-    BOOL AddToString(const char *cDec, BOOL m_bGaiji);
+    bool_t AddToString(const char *cDec, bool_t m_bGaiji);
 
 public:
-    string Get_dicCharcode_Char(WORD DRCSCharCode)
+    string Get_dicCharcode_Char(word_t DRCSCharCode)
     {
         string strRet = "NF";
-        map<WORD, string>::iterator iter = dicCharcode_Char_map.find(DRCSCharCode);
+        map<word_t, string>::iterator iter = dicCharcode_Char_map.find(DRCSCharCode);
         if (iter != dicCharcode_Char_map.end()) {
             strRet = iter->second;
         }
         return strRet;
     }
-    void Add_dicCharcode_Char(WORD DRCSCharCode, string gaijichar)
+    void Add_dicCharcode_Char(word_t DRCSCharCode, string gaijichar)
     {
-        dicCharcode_Char_map.insert(std::make_pair(DRCSCharCode, map<WORD, string>::mapped_type())).first->second = gaijichar;
+        dicCharcode_Char_map.insert(std::make_pair(DRCSCharCode, map<word_t, string>::mapped_type())).first->second = gaijichar;
     }
     string Get_dicHash_Char(string hash)
     {
@@ -287,7 +291,7 @@ public:
         }
         return strRet;
     }
-    VOID Add_dicHash_Char(string hash, string gaijichar)
+    void Add_dicHash_Char(string hash, string gaijichar)
     {
         dicHash_Char_map.insert(map<string, string>::value_type(hash, gaijichar));
     }

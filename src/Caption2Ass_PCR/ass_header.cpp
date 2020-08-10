@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include <stdio.h>
+#include <string.h>
 
 #include "ass_header.h"
 #include "Caption2Ass_PCR.h"

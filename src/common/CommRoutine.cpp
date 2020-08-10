@@ -6,6 +6,8 @@
 
 #include <string>
 
+#include "CommTypes.h"
+
 #include "CommRoutine.h"
 #include "CaptionDef.h"
 
@@ -98,8 +100,8 @@ static const char HalfKanaTable[][3] = {
 extern std::string GetHalfChar(std::string key)
 {
 //  std::string ret;
-    CHAR ret[STRING_BUFFER_SIZE] = { 0 };
-    BOOL bMatch = FALSE;
+    char ret[STRING_BUFFER_SIZE] = { 0 };
+    bool_t bMatch = false;
 
     // マッチしない文字は、そのまま使用
     const char *_p = key.c_str();
@@ -109,23 +111,23 @@ extern std::string GetHalfChar(std::string key)
 
     while (p < _p + key.size()) {
         for (int i = 0; i < sizeof(HiraTable) / sizeof(HiraTable[0]) && p < _p + key.size(); i++) {
-            bMatch = FALSE;
+            bMatch = false;
             if (memcmp(p, HiraTable[i], 2) == 0) {
 //              ret += HalfHiraTable[i];
                 strcat_s( ret, STRING_BUFFER_SIZE, HalfHiraTable[i] );
                 p += 2;
-                bMatch = TRUE;
+                bMatch = true;
                 i = -1;
             }
         }
 
         for (int i = 0; i < sizeof(KanaTable) / sizeof(KanaTable[0]) && p < _p + key.size(); i++) {
-            bMatch = FALSE;
+            bMatch = false;
             if (memcmp(p, KanaTable[i], 2) == 0) {
 //              ret += HalfKanaTable[i];
                 strcat_s(ret, STRING_BUFFER_SIZE, HalfKanaTable[i]);
                 p += 2;
-                bMatch = TRUE;
+                bMatch = true;
                 i = -1;
             }
         }

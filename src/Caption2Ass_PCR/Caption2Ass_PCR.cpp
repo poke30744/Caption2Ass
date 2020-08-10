@@ -5,6 +5,7 @@
 #include <shlwapi.h>
 #include <vector>
 
+#include "CommTypes.h"
 #include "CommRoutine.h"
 #include "CaptionDllUtil.h"
 #include "cmdline.h"
@@ -34,28 +35,28 @@ typedef struct _ASS_COLOR {
 
 typedef struct _LINE_STR {
     ASS_COLOR       outCharColor;
-    BOOL            outUnderLine;
-    BOOL            outShadow;
-    BOOL            outBold;
-    BOOL            outItalic;
-    BYTE            outFlushMode;
+    bool_t            outUnderLine;
+    bool_t            outShadow;
+    bool_t            outBold;
+    bool_t            outItalic;
+    byte_t            outFlushMode;
     std::string     str;
 } LINE_STR, *PLINE_STR;
 
 typedef std::vector<PLINE_STR> STRINGS_LIST;
 
 typedef struct _CAPTION_LINE {
-    UINT            index;
-    DWORD           startTime;
-    DWORD           endTime;
-    BYTE            outCharSizeMode;
-    WORD            outCharW;
-    WORD            outCharH;
-    WORD            outCharHInterval;
-    WORD            outCharVInterval;
-    WORD            outPosX;
-    WORD            outPosY;
-    BYTE            outHLC;     //must ignore low 4bits
+    uint_t            index;
+    dword_t           startTime;
+    dword_t           endTime;
+    byte_t            outCharSizeMode;
+    word_t            outCharW;
+    word_t            outCharH;
+    word_t            outCharHInterval;
+    word_t            outCharVInterval;
+    word_t            outPosX;
+    word_t            outPosY;
+    byte_t            outHLC;     //must ignore low 4bits
     STRINGS_LIST    outStrings;
 } CAPTION_LINE, *PCAPTION_LINE;
 
@@ -108,8 +109,8 @@ class IAppHandler : public ITimestampHandler
 {
 public:
     // Control informations
-    BOOL            bCreateOutput;
-    BOOL            bUnicode;
+    bool_t            bCreateOutput;
+    bool_t            bUnicode;
     int             sidebar_size;   // ASS only
     size_t          string_length;
 
@@ -121,8 +122,8 @@ protected:
     void initialize(void)
     {
         this->init_timestamp();
-        this->bCreateOutput = FALSE;
-        this->bUnicode      = FALSE;
+        this->bCreateOutput = false;
+        this->bUnicode      = false;
         this->sidebar_size  = 0;
         this->string_length = 0;
         this->param         = NULL;
@@ -161,7 +162,7 @@ protected:
     format_type     format;
     TCHAR          *name;
     FILE           *fp;
-    DWORD           index;
+    dword_t           index;
     size_t          string_length;
     IAppHandler    *app;
 
@@ -241,7 +242,7 @@ protected:
 
 public:
     virtual int  Setup(void) = 0;
-    virtual void Dump(CAPTION_LIST& capList, DWORD endTime) = 0;
+    virtual void Dump(CAPTION_LIST& capList, dword_t endTime) = 0;
 };
 
 class ILogHandler : public IOutputHandler
@@ -277,15 +278,15 @@ public:
 class CAssHandler : public ICaptionHandler
 {
 public:
-    BOOL            norubi;
-	BOOL			aligncenter;
+    bool_t            norubi;
+	bool_t			aligncenter;
 
 private:
     ass_setting_t  *as;
 
 public:
     CAssHandler(IAppHandler *app)
-     : norubi(FALSE), as(NULL)
+     : norubi(false), as(NULL)
     {
         this->initialize(FORMAT_ASS, app);
     }
@@ -299,17 +300,17 @@ public:
     void WriteHeader(void);
     void Close(void);
     int  Setup(void);
-    void Dump(CAPTION_LIST& capList, DWORD endTime);
+    void Dump(CAPTION_LIST& capList, dword_t endTime);
 };
 
 class CSrtHandler : public ICaptionHandler
 {
 public:
-    BOOL            ornament;
+    bool_t            ornament;
 
 public:
     CSrtHandler(IAppHandler *app)
-     : ornament(FALSE)
+     : ornament(false)
     {
         this->initialize(FORMAT_SRT, app);
     }
@@ -323,7 +324,7 @@ public:
     void WriteHeader(void);
     void Close(void);
     int  Setup(void);
-    void Dump(CAPTION_LIST& capList, DWORD endTime);
+    void Dump(CAPTION_LIST& capList, dword_t endTime);
 };
 
 class CAppHandler : public IAppHandler
@@ -537,7 +538,7 @@ int CSrtHandler::Open(void)
     cli_parameter_t *cp = static_cast<cli_parameter_t *>(this->app->GetParam(C2A_PARAM_CLI));
 
     // Initialize.
-    this->ornament = (cp->format == FORMAT_TAW) ? FALSE : cp->srtornament;
+    this->ornament = (cp->format == FORMAT_TAW) ? false : cp->srtornament;
     return 0;
 }
 
@@ -618,7 +619,7 @@ int CSrtHandler::Setup(void)
     this->format = (cp->format != FORMAT_TAW) ? FORMAT_SRT : FORMAT_TAW;
     return 0;
 }
-void CAssHandler::Dump(CAPTION_LIST& capList, DWORD endTime)
+void CAssHandler::Dump(CAPTION_LIST& capList, dword_t endTime)
 {
     FILE *fp = this->fp;
 
@@ -807,7 +808,7 @@ void CAssHandler::Dump(CAPTION_LIST& capList, DWORD endTime)
 
 }
 
-void CSrtHandler::Dump(CAPTION_LIST& capList, DWORD endTime)
+void CSrtHandler::Dump(CAPTION_LIST& capList, dword_t endTime)
 {
 #define ORNAMENT_START(s)                               \
 do {                                                    \
@@ -817,7 +818,7 @@ do {                                                    \
     bCharColor = ((s)->outCharColor.ucR != 0xff         \
                || (s)->outCharColor.ucG != 0xff         \
                || (s)->outCharColor.ucB != 0xff)        \
-               ? TRUE : FALSE;                          \
+               ? true : false;                          \
     if (bItalic)                                        \
         fprintf(fp, "<i>");                             \
     if (bBold)                                          \
@@ -844,7 +845,7 @@ do {                            \
 
     FILE *fp = this->fp;
 
-    BOOL bNoSRT = TRUE;
+    bool_t bNoSRT = true;
     CAPTION_LIST::iterator it = capList.begin();
     for (int i = 0; it != capList.end(); it++, i++) {
 
@@ -861,10 +862,10 @@ do {                            \
         // ‚Ó‚è‚ª‚È Skip
         if ((*it)->outCharSizeMode == STR_SMALL)
             continue;
-        bNoSRT = FALSE;
+        bNoSRT = false;
 
         STRINGS_LIST::iterator it2 = (*it)->outStrings.begin();
-        BOOL bItalic = FALSE, bBold = FALSE, bUnderLine = FALSE, bCharColor = FALSE;
+        bool_t bItalic = false, bBold = false, bUnderLine = false, bCharColor = false;
 
         if (this->ornament) {
             ORNAMENT_START(*it2);
@@ -986,11 +987,11 @@ static int initialize_caption_dll(CAppHandler& app, CCaptionDllUtil& capUtil)
     if (!capUtil.CheckUNICODE() || (cp->format == FORMAT_TAW)) {
         if (capUtil.Initialize() != NO_ERR)
             return -1;
-        app.bUnicode = FALSE;
+        app.bUnicode = false;
     } else {
         if (capUtil.InitializeUNICODE() != NO_ERR)
             return -1;
-        app.bUnicode = TRUE;
+        app.bUnicode = true;
     }
     return 0;
 }
@@ -1037,8 +1038,8 @@ static int output_caption(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LI
     int   workCharVInterval = 0;
     int   workPosX          = 0;
     int   workPosY          = 0;
-    BYTE  workHLC           = HLC_kigou;    //must ignore low 4bits
-    WORD  wLastSWFMode      = 999;
+    byte_t  workHLC           = HLC_kigou;    //must ignore low 4bits
+    word_t  wLastSWFMode      = 999;
     int   offsetPosX        = 0;
     int   offsetPosY        = 0;
     float ratioX            = 2;
@@ -1066,8 +1067,8 @@ static int output_caption(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LI
                 clear_caption_list(capList);
                 continue;
             }
-            app.bCreateOutput = TRUE;
-            DWORD endTime = (DWORD)((PTS + it->dwWaitTime) - app.startPCR);
+            app.bCreateOutput = true;
+            dword_t endTime = (dword_t)((PTS + it->dwWaitTime) - app.startPCR);
             for (int i = 0; handle[i]; i++)
                 if (handle[i]->active)
                     handle[i]->Dump(capList, endTime);
@@ -1193,11 +1194,11 @@ static int output_caption(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LI
                 unsigned char workucR = it2->stCharColor.ucR;
                 unsigned char workucG = it2->stCharColor.ucG;
                 unsigned char workucB = it2->stCharColor.ucB;
-                BOOL workUnderLine    = it2->bUnderLine;
-                BOOL workShadow       = it2->bShadow;
-                BOOL workBold         = it2->bBold;
-                BOOL workItalic       = it2->bItalic;
-                BYTE workFlushMode    = it2->bFlushMode;
+                bool_t workUnderLine    = it2->bUnderLine;
+                bool_t workShadow       = it2->bShadow;
+                bool_t workBold         = it2->bBold;
+                bool_t workItalic       = it2->bItalic;
+                byte_t workFlushMode    = it2->bFlushMode;
                 workHLC               = (it2->bHLC != 0) ? cp->HLCmode : it2->bHLC;
 
                 if (!(app.bUnicode) && (it2->emCharSizeMode == STR_MEDIUM))
@@ -1219,8 +1220,8 @@ static int output_caption(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LI
                     log->print(_T("%s\r\n"), it2->strDecode.c_str());
                 }
 
-                CHAR  str_utf8[STRING_BUFFER_SIZE]  = { 0 };
-                WCHAR str_wchar[STRING_BUFFER_SIZE] = { 0 };
+                char  str_utf8[STRING_BUFFER_SIZE]  = { 0 };
+                wchar_t str_wchar[STRING_BUFFER_SIZE] = { 0 };
 
                 if ((cp->format == FORMAT_TAW) || (app.bUnicode))
                     strcpy_s(str_utf8, STRING_BUFFER_SIZE, it2->strDecode.c_str());
@@ -1252,13 +1253,13 @@ static int output_caption(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LI
 
             // Push back the caption lines.
             pCapLine->index            = 0;     //useless
-            pCapLine->startTime        = (PTS > app.startPCR) ? (DWORD)(PTS - app.startPCR) : 0;
+            pCapLine->startTime        = (PTS > app.startPCR) ? (dword_t)(PTS - app.startPCR) : 0;
             pCapLine->endTime          = 0;
             pCapLine->outCharSizeMode  = workCharSizeMode;
-            pCapLine->outCharW         = (WORD)(workCharW * ratioX);
-            pCapLine->outCharH         = (WORD)(workCharH * ratioY);
-            pCapLine->outCharHInterval = (WORD)(workCharHInterval * ratioX);
-            pCapLine->outCharVInterval = (WORD)(workCharVInterval * ratioY);
+            pCapLine->outCharW         = (word_t)(workCharW * ratioX);
+            pCapLine->outCharH         = (word_t)(workCharH * ratioY);
+            pCapLine->outCharHInterval = (word_t)(workCharHInterval * ratioX);
+            pCapLine->outCharVInterval = (word_t)(workCharVInterval * ratioY);
             pCapLine->outHLC           = workHLC;
             pCapLine->outPosX          = workPosX;
             pCapLine->outPosY          = workPosY;
@@ -1280,9 +1281,9 @@ static int main_loop(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LIST& c
     pid_information_t  *pi = static_cast<pid_information_t *>(app.GetParam(C2A_PARAM_PID));
     cli_parameter_t    *cp = static_cast<cli_parameter_t *>(app.GetParam(C2A_PARAM_CLI));
 
-    BOOL bPrintPMT = TRUE;
-    BYTE pbPacket[188 * 2 + 4] = { 0 };
-    DWORD packetCount = 0;
+    bool_t bPrintPMT = true;
+    byte_t pbPacket[188 * 2 + 4] = { 0 };
+    dword_t packetCount = 0;
 
     // Main loop
     while (fread(pbPacket, 188, 1, app.fpInputTs) == 1) {
@@ -1328,7 +1329,7 @@ static int main_loop(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LIST& c
         // PAT
         if (packet.PID == 0 && (pi->PMTPid == 0 || bPrintPMT)) {
             parse_PAT(&pbPacket[0], &(pi->PMTPid));
-            bPrintPMT = FALSE;
+            bPrintPMT = false;
 
             continue; // next packet
         }
@@ -1355,11 +1356,11 @@ static int main_loop(CAppHandler& app, CCaptionDllUtil& capUtil, CAPTION_LIST& c
 
         // PCR
         if (pi->PCRPid != 0 && packet.PID == pi->PCRPid) {
-            DWORD bADP = (((DWORD)pbPacket[3] & 0x30) >> 4);
+            dword_t bADP = (((dword_t)pbPacket[3] & 0x30) >> 4);
             if (!(bADP & 0x2))
                 continue; // next packet
 
-            DWORD bAF = (DWORD)pbPacket[5];
+            dword_t bAF = (dword_t)pbPacket[5];
             if (!(bAF & 0x10))
                 continue; // next packet
 

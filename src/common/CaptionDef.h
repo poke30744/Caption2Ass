@@ -4,10 +4,10 @@
 #ifndef __CAPTION_DEF_H__
 #define __CAPTION_DEF_H__
 
-#include <wtypes.h>
+#include "CommTypes.h"
 
-#define ERR_FALSE   FALSE   //汎用エラー
-#define NO_ERR      TRUE    //成功
+#define ERR_FALSE   (bool_t)false   //汎用エラー
+#define NO_ERR      (bool_t)true    //成功
 
 #define ERR_INIT        10
 #define ERR_NOT_INIT    11
@@ -27,6 +27,10 @@
 
 #define STRING_BUFFER_SIZE      (1024)
 
+#ifndef MAX_PATH
+#define MAX_PATH            260
+#endif
+
 typedef struct _CLUT_DAT_DLL {
     unsigned char ucR;
     unsigned char ucG;
@@ -36,37 +40,37 @@ typedef struct _CLUT_DAT_DLL {
 
 typedef struct _CAPTION_CHAR_DATA_DLL {
     char *pszDecode;
-    DWORD wCharSizeMode;
+    dword_t wCharSizeMode;
 
     CLUT_DAT_DLL stCharColor;
     CLUT_DAT_DLL stBackColor;
     CLUT_DAT_DLL stRasterColor;
 
-    BOOL bUnderLine;
-    BOOL bShadow;
-    BOOL bBold;
-    BOOL bItalic;
-    BYTE bFlushMode;
-    BYTE bHLC;  //must ignore low 4bits
+    bool_t bUnderLine;
+    bool_t bShadow;
+    bool_t bBold;
+    bool_t bItalic;
+    byte_t bFlushMode;
+    byte_t bHLC;  //must ignore low 4bits
 
-    WORD wCharW;
-    WORD wCharH;
-    WORD wCharHInterval;
-    WORD wCharVInterval;
+    word_t wCharW;
+    word_t wCharH;
+    word_t wCharHInterval;
+    word_t wCharVInterval;
 } CAPTION_CHAR_DATA_DLL;
 
 typedef struct _CAPTION_DATA_DLL {
-    BOOL bClear;
-    WORD wSWFMode;
-    WORD wClientX;
-    WORD wClientY;
-    WORD wClientW;
-    WORD wClientH;
-    WORD wPosX;
-    WORD wPosY;
-    DWORD dwListCount;
+    bool_t bClear;
+    word_t wSWFMode;
+    word_t wClientX;
+    word_t wClientY;
+    word_t wClientW;
+    word_t wClientH;
+    word_t wPosX;
+    word_t wPosY;
+    dword_t dwListCount;
     CAPTION_CHAR_DATA_DLL *pstCharList;
-    DWORD dwWaitTime;
+    dword_t dwWaitTime;
 } CAPTION_DATA_DLL;
 
 typedef struct _LANG_TAG_INFO_DLL {

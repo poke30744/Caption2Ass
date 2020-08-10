@@ -4,9 +4,11 @@
 #ifndef __CAPTION2ASS_PCR_H__
 #define __CAPTION2ASS_PCR_H__
 
+#include <stdio.h>
 #include <tchar.h>
-
 #include "Caption2AssParameter.h"
+
+#include "CommTypes.h"
 
 extern void assHeaderWrite(FILE *fp, ass_setting_t *as);
 extern int IniFileRead(TCHAR *ass_type, ass_setting_t *as);

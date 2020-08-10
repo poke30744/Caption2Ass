@@ -2,6 +2,8 @@
 // IniFile.cpp
 //------------------------------------------------------------------------------
 
+#include <Windows.h>
+
 #include "CaptionDef.h"
 #include "ColorDef.h"
 #include "ARIB8CharDecode.h"
@@ -15,15 +17,15 @@ static const string iniFileARIBU  = "UNICODE_cc_gaiji.ini";
 static const string iniFileARIB2  = "cc_gaiji2.ini";
 static const string iniFileARIB2U = "UNICODE_cc_gaiji2.ini";
 
-BOOL IniFile::ReadIni(void)
+bool_t IniFile::ReadIni(void)
 {
     CARIB8CharDecode ARIB8CharDecode;
     string tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFilename;
     FILE *fpini = NULL;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rt") || !fpini)
-        return FALSE;
+        return false;
     string tmprl;
-    CHAR strSJIS[STRING_BUFFER_SIZE] = { 0 };
+    char strSJIS[STRING_BUFFER_SIZE] = { 0 };
     do {
         fgets(strSJIS, STRING_BUFFER_SIZE, fpini);
         size_t len = strlen(strSJIS);
@@ -45,19 +47,19 @@ BOOL IniFile::ReadIni(void)
             }
     } while ((tmprl != "[外字出力]") && (!feof(fpini)));
     fclose(fpini);
-    return TRUE;
+    return true;
 }
 
-BOOL IniFile::ReadIniARIB(void)
+bool_t IniFile::ReadIniARIB(void)
 {
     // ARIBの追加記号 「ARIB STD-B24」第一編 第２部の表7-10
     CARIB8CharDecode ARIB8CharDecode;
     string tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIB;
     FILE *fpini = NULL;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rt") || !fpini)
-        return FALSE;
+        return false;
     string tmprl;
-    CHAR strSJIS[STRING_BUFFER_SIZE] = { 0 };
+    char strSJIS[STRING_BUFFER_SIZE] = { 0 };
     do {
         fgets(strSJIS, STRING_BUFFER_SIZE, fpini);
         size_t len = strlen(strSJIS);
@@ -84,7 +86,7 @@ BOOL IniFile::ReadIniARIB(void)
     // ARIBの追加漢字 「ARIB STD-B24」第一編 第２部の表7-11
     tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIB2;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rt") || !fpini)
-        return FALSE;
+        return false;
     do {
         fgets(strSJIS, STRING_BUFFER_SIZE, fpini);
         size_t len = strlen(strSJIS);
@@ -106,15 +108,15 @@ BOOL IniFile::ReadIniARIB(void)
             }
     } while ((tmprl != "[ARIB外字2出力]") && (!feof(fpini)));
     fclose(fpini);
-    return TRUE;
+    return true;
 }
-BOOL IniFile::ReadIniUNICODE(void)
+bool_t IniFile::ReadIniUNICODE(void)
 {
     CARIB8CharDecode ARIB8CharDecode;
     string tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFilenameU;
     FILE *fpini = NULL;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rb") || !fpini)
-        return FALSE;
+        return false;
 
     // BOM判定
     unsigned char utf16bom[2];
@@ -124,12 +126,12 @@ BOOL IniFile::ReadIniUNICODE(void)
     } else {
         int result = fseek(fpini, 0, SEEK_SET);
         if (result)
-            return FALSE;
+            return false;
     }
     string tmprl;
-    WCHAR str[STRING_BUFFER_SIZE]    = { 0 };
-    CHAR strUTF8[STRING_BUFFER_SIZE] = { 0 };
-    CHAR strSJIS[STRING_BUFFER_SIZE] = { 0 };
+    wchar_t str[STRING_BUFFER_SIZE]    = { 0 };
+    char strUTF8[STRING_BUFFER_SIZE] = { 0 };
+    char strSJIS[STRING_BUFFER_SIZE] = { 0 };
     string tmpUTF8;
     do {
         fgetws(str, STRING_BUFFER_SIZE, fpini);
@@ -156,17 +158,17 @@ BOOL IniFile::ReadIniUNICODE(void)
             }
     } while ((tmprl != "[外字出力]") && (!feof(fpini)));
     fclose(fpini);
-    return TRUE;
+    return true;
 }
 
-BOOL IniFile::ReadIniARIBUNICODE(void)
+bool_t IniFile::ReadIniARIBUNICODE(void)
 {
     // ARIBの追加記号 「ARIB STD-B24」第一編 第２部の表7-10
     CARIB8CharDecode ARIB8CharDecode;
     string tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIBU;
     FILE *fpini = NULL;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rb") || !fpini)
-        return FALSE;
+        return false;
 
     // BOM判定
     unsigned char utf16bom[2];
@@ -176,12 +178,12 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
     } else {
         int result = fseek(fpini, 0, SEEK_SET);
         if (result)
-            return FALSE;
+            return false;
     }
     string tmprl;
-    WCHAR str[STRING_BUFFER_SIZE]    = { 0 };
-    CHAR strUTF8[STRING_BUFFER_SIZE] = { 0 };
-    CHAR strSJIS[STRING_BUFFER_SIZE] = { 0 };
+    wchar_t str[STRING_BUFFER_SIZE]    = { 0 };
+    char strUTF8[STRING_BUFFER_SIZE] = { 0 };
+    char strSJIS[STRING_BUFFER_SIZE] = { 0 };
     string tmpUTF8;
     do {
         fgetws(str, STRING_BUFFER_SIZE, fpini);
@@ -213,7 +215,7 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
     // ARIBの追加漢字 「ARIB STD-B24」第一編 第２部の表7-11
     tmpFilename = ARIB8CharDecode.GetAppPath() + "\\Gaiji\\" + iniFileARIB2U;
     if (fopen_s(&fpini, tmpFilename.c_str(), "rb") || !fpini)
-        return FALSE;
+        return false;
 
     // BOM判定
     utf16bom[0] = (char)fgetc(fpini);
@@ -222,7 +224,7 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
     } else {
         int result = fseek(fpini, 0, SEEK_SET);
         if (result)
-            return FALSE;
+            return false;
     }
     do {
         fgetws(str, STRING_BUFFER_SIZE, fpini);
@@ -251,5 +253,5 @@ BOOL IniFile::ReadIniARIBUNICODE(void)
             }
     } while ((tmprl != "[ARIB外字2出力]") && (!feof(fpini)));
     fclose(fpini);
-    return TRUE;
+    return true;
 }

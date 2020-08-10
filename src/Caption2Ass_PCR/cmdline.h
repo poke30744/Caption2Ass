@@ -4,8 +4,7 @@
 #ifndef __CMD_LINE_H__
 #define __CMD_LINE_H__
 
-#include <stdlib.h>
-#include <tchar.h>
+#include <Windows.h>
 
 #include "Caption2Ass_PCR.h"
 

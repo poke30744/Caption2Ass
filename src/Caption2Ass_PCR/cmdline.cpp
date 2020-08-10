@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------
 
 #include <strsafe.h>
+#include <Windows.h>
 
 #include "cmdline.h"
 #include "CaptionDef.h"
@@ -112,11 +113,11 @@ ERROR_PARAM:
                 goto ERROR_PARAM;
             _tcscpy_s(cp->ass_type, string_length, argv[i]);
         } else if (_tcsicmp(argv[i], _T("-log")) == 0)
-            cp->LogMode = TRUE;
+            cp->LogMode = true;
         else if (_tcsicmp(argv[i], _T("-keepinterval")) == 0)
-            cp->keepInterval = TRUE;
+            cp->keepInterval = true;
         else if (_tcsicmp(argv[i], _T("-srtornament")) == 0)
-            cp->srtornament = TRUE;
+            cp->srtornament = true;
         else if (_tcsicmp(argv[i], _T("-hlc")) == 0) {
             i++;
             if (i > argc)
@@ -130,9 +131,9 @@ ERROR_PARAM:
             else
                 goto ERROR_PARAM;
         } else if (_tcsicmp(argv[i], _T("-norubi")) == 0)
-            cp->norubi = TRUE;
+            cp->norubi = true;
 		else if (_tcsicmp(argv[i], _T("-center")) == 0)
-            cp->alignCenter = TRUE;
+            cp->alignCenter = true;
         else if (_tcsicmp(argv[i], _T("-detect_length")) == 0) {
             i++;
             if (i > argc)
@@ -150,7 +151,7 @@ ERROR_PARAM:
     return 0;
 }
 
-extern void _tMyPrintf(IN  LPCTSTR tracemsg, ...)
+extern void _tMyPrintf(LPCTSTR tracemsg, ...)
 {
     TCHAR buf[MAX_PATH + 2048] = { 0 };
     HRESULT ret;

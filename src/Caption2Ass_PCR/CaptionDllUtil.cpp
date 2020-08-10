@@ -17,10 +17,10 @@ CCaptionDllUtil::~CCaptionDllUtil(void)
     UnLoadDll();
 }
 
-BOOL CCaptionDllUtil::LoadDll(void)
+bool_t CCaptionDllUtil::LoadDll(void)
 {
     if (m_hModule)
-        return FALSE;
+        return false;
 
     pfnInitializeCP = NULL;
     pfnUnInitializeCP = NULL;
@@ -35,7 +35,7 @@ BOOL CCaptionDllUtil::LoadDll(void)
     m_hModule = ::LoadLibrary(_T("Caption.dll"));
 #endif
     if (!m_hModule)
-        return FALSE;
+        return false;
 
 #define GetProcAddr(_func)                                          \
 do {                                                                \
@@ -51,99 +51,99 @@ do {                                                                \
     GetProcAddr(GetCaptionDataCP);
 #undef GetProcAddr
 
-    return TRUE;
+    return true;
 
 ERR_END:
     ::FreeLibrary(m_hModule);
     m_hModule = NULL;
 
-    return FALSE;
+    return false;
 }
 
-BOOL CCaptionDllUtil::UnLoadDll(void)
+bool_t CCaptionDllUtil::UnLoadDll(void)
 {
     if (m_hModule) {
         pfnUnInitializeCP();
         ::FreeLibrary(m_hModule);
     }
     m_hModule = NULL;
-    return TRUE;
+    return true;
 }
 
-BOOL CCaptionDllUtil::CheckUNICODE(void)
+bool_t CCaptionDllUtil::CheckUNICODE(void)
 {
     pfnInitializeUNICODE = NULL;
     if (!m_hModule)
-        if (LoadDll() == FALSE)
-            return FALSE;
+        if (LoadDll() == false)
+            return false;
 
     pfnInitializeUNICODE = (InitializeUNICODECP)(::GetProcAddress(m_hModule, "InitializeUNICODE"));
     if (!pfnInitializeUNICODE)
-        return FALSE;
-    return TRUE;
+        return false;
+    return true;
 }
-DWORD CCaptionDllUtil::InitializeUNICODE(void)
+dword_t CCaptionDllUtil::InitializeUNICODE(void)
 {
     if (!pfnInitializeUNICODE)
         return ERR_INIT;
     return pfnInitializeUNICODE();
 }
 
-DWORD CCaptionDllUtil::Initialize(void)
+dword_t CCaptionDllUtil::Initialize(void)
 {
     if (!pfnInitializeCP)
         return ERR_INIT;
     return pfnInitializeCP();
 }
 
-DWORD CCaptionDllUtil::UnInitialize(void)
+dword_t CCaptionDllUtil::UnInitialize(void)
 {
     if (!m_hModule)
         return ERR_INIT;
-    DWORD dwRet = pfnUnInitializeCP();
+    dword_t dwRet = pfnUnInitializeCP();
     UnLoadDll();
     return dwRet;
 }
 
-DWORD CCaptionDllUtil::AddTSPacket(BYTE *pbPacket)
+dword_t CCaptionDllUtil::AddTSPacket(byte_t *pbPacket)
 {
     if (!m_hModule)
         return ERR_INIT;
     return pfnAddTSPacketCP(pbPacket);
 }
 
-DWORD CCaptionDllUtil::Clear(void)
+dword_t CCaptionDllUtil::Clear(void)
 {
     if (!m_hModule)
         return ERR_INIT;
     return pfnClearCP();
 }
 
-DWORD CCaptionDllUtil::GetTagInfo(LANG_TAG_INFO_DLL **ppList, DWORD *pdwListCount)
+dword_t CCaptionDllUtil::GetTagInfo(LANG_TAG_INFO_DLL **ppList, dword_t *pdwListCount)
 {
     if (!m_hModule)
         return ERR_INIT;
     return pfnGetTagInfoCP(ppList, pdwListCount);
 }
 
-DWORD CCaptionDllUtil::GetCaptionData(unsigned char ucLangTag, CAPTION_DATA_DLL **ppList, DWORD *pdwListCount)
+dword_t CCaptionDllUtil::GetCaptionData(unsigned char ucLangTag, CAPTION_DATA_DLL **ppList, dword_t *pdwListCount)
 {
     if (!m_hModule)
         return ERR_INIT;
     return pfnGetCaptionDataCP(ucLangTag, ppList, pdwListCount);
 }
 
-DWORD CCaptionDllUtil::GetTagInfo(vector<LANG_TAG_INFO> *pList)
+dword_t CCaptionDllUtil::GetTagInfo(vector<LANG_TAG_INFO> *pList)
 {
     if (!m_hModule)
         return ERR_INIT;
 
     LANG_TAG_INFO_DLL *pListDll;
-    DWORD dwListCount;
+    dword_t dwListCount;
 
-    DWORD dwRet = pfnGetTagInfoCP(&pListDll,&dwListCount);
-    if (dwRet == TRUE)
-        for (DWORD i = 0; i < dwListCount; i++) {
+    dword_t dwRet = pfnGetTagInfoCP(&pListDll,&dwListCount);
+    if (dwRet == (dword_t)true)
+        for (dword_t i = 0; i < dwListCount; i++) {
             LANG_TAG_INFO Item;
             Item.ucLangTag=pListDll[i].ucLangTag;
             Item.ucDMF = pListDll[i].ucDMF;
@@ -158,17 +158,17 @@ DWORD CCaptionDllUtil::GetTagInfo(vector<LANG_TAG_INFO> *pList)
     return dwRet;
 }
 
-DWORD CCaptionDllUtil::GetCaptionData(unsigned char ucLangTag, vector<CAPTION_DATA> *pList)
+dword_t CCaptionDllUtil::GetCaptionData(unsigned char ucLangTag, vector<CAPTION_DATA> *pList)
 {
     if (!m_hModule)
         return ERR_INIT;
 
     CAPTION_DATA_DLL *pListDll;
-    DWORD dwListCount = 0;
+    dword_t dwListCount = 0;
 
-    DWORD dwRet = pfnGetCaptionDataCP(ucLangTag, &pListDll, &dwListCount);
-    if (dwRet == TRUE)
-        for (DWORD i = 0; i < dwListCount; i++) {
+    dword_t dwRet = pfnGetCaptionDataCP(ucLangTag, &pListDll, &dwListCount);
+    if (dwRet == (dword_t)true)
+        for (dword_t i = 0; i < dwListCount; i++) {
             CAPTION_DATA Item;
             Item.bClear = pListDll[i].bClear;
             Item.wSWFMode = pListDll[i].wSWFMode;
@@ -179,7 +179,7 @@ DWORD CCaptionDllUtil::GetCaptionData(unsigned char ucLangTag, vector<CAPTION_DA
             Item.wPosX = pListDll[i].wPosX;
             Item.wPosY = pListDll[i].wPosY;
             Item.dwWaitTime = pListDll[i].dwWaitTime;
-            for (DWORD j = 0; j < pListDll[i].dwListCount; j++) {
+            for (dword_t j = 0; j < pListDll[i].dwListCount; j++) {
                 CAPTION_CHAR_DATA ItemChar;
                 ItemChar.strDecode = pListDll[i].pstCharList[j].pszDecode;
                 ItemChar.emCharSizeMode = (STRING_SIZE)pListDll[i].pstCharList[j].wCharSizeMode;
